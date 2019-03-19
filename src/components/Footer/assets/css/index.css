@@ -1,0 +1,22 @@
+#footer,
+#footer a {
+  color: #707070;
+  background-color: #fafafa;
+}
+
+#footer .container-fluid {
+  padding: 0;
+}
+
+#double-footer {
+  background-color: #ececec;
+}
+
+#footer .footer-section-title {
+  margin: 5px 0 25px 0;
+}
+
+#footer .footer-section-title span {
+  padding-bottom: 4px;
+  border-bottom: 4px solid #707070;
+}
