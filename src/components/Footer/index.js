@@ -83,7 +83,7 @@ class Footer extends Component {
             </div>
           </div>
           <div
-            class="footer-copyright text-center py-3 d-lg-none"
+            className="footer-copyright text-center py-3 d-lg-none"
             id="double-footer"
           >
             © 2019 BRAND

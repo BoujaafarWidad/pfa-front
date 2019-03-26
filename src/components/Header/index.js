@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 import "./assets/css/index.css";
 
 class Header extends Component {
@@ -6,9 +7,9 @@ class Header extends Component {
     return (
       <header>
         <nav className="navbar navbar-expand-lg navbar-light" id="navbar">
-          <a className="navbar-brand text-color-primary" href="./" id="brand">
+          <Link className="navbar-brand text-color-primary" to="/" id="brand">
             BRAND
-          </a>
+          </Link>
           <button
             className="navbar-toggler"
             type="button"
@@ -43,14 +44,14 @@ class Header extends Component {
             </ul>
             <ul className="navbar-nav my-2 my-md-0">
               <li className="nav-item">
-                <a className="nav-link" href="!#">
+                <Link className="nav-link" to="/sign-in">
                   <span>Sign in</span>
-                </a>
+                </Link>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="!#">
+                <Link className="nav-link" to="/sign-up">
                   <span>Sign up</span>
-                </a>
+                </Link>
               </li>
             </ul>
           </div>

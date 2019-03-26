@@ -1,0 +1,12 @@
+#signup-card {
+  margin: 100px 0;
+}
+
+#signup-card #first-form {
+  position: relative;
+}
+
+#signup-card #first-form button {
+  position: absolute;
+  right: 0;
+}
