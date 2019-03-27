@@ -1,12 +1,13 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Home from "./Home";
-import SignIn from "./SignIn";
-import SignUp from "./SignUp";
+import SignIn from "./Home/components/SignIn";
+import SignUp from "./Home/components/SignUp";
+import App from "./App";
 
 const NotFound = () => <h2>Not Found !</h2>;
 
-class App extends Component {
+class Routes extends Component {
   render() {
     return (
       <Router>
@@ -14,6 +15,7 @@ class App extends Component {
           <Route path="/" component={Home} exact />
           <Route path="/sign-in" component={SignIn} exact />
           <Route path="/sign-up" component={SignUp} exact />
+          <Route path="/app" component={App} exact />
           <Route component={NotFound} />
         </Switch>
       </Router>
@@ -21,4 +23,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default Routes;
