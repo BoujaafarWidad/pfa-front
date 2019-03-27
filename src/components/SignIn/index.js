@@ -4,6 +4,10 @@ import Footer from "../Footer";
 import "./assets/css/index.css";
 
 class SignIn extends Component {
+  componentWillMount() {
+    document.title = "Sign in";
+  }
+
   render() {
     return (
       <Fragment>

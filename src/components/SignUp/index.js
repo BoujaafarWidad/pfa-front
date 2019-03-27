@@ -11,6 +11,10 @@ class SignUp extends Component {
     };
   }
 
+  componentWillMount() {
+    document.title = "Sign up";
+  }
+
   _handleNextClick = e => {
     e.preventDefault();
     this.setState({ formIndex: 1 });

@@ -3,6 +3,10 @@ import Header from "../Header";
 import Footer from "../Footer";
 
 class Home extends Component {
+  componentWillMount() {
+    document.title = "Home";
+  }
+
   render() {
     return (
       <Fragment>
