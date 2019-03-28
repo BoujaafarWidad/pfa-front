@@ -27,7 +27,7 @@ class Header extends Component {
               id="dropdown-menu"
             >
               <Link className="dropdown-item" to="./">
-                <i class="fas fa-fingerprint mr-3" /> jane.doe@gmail.com
+                <i className="fas fa-fingerprint mr-3" /> jane.doe@gmail.com
               </Link>
               <div className="dropdown-divider" />
               <Link className="dropdown-item" to="./">
