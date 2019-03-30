@@ -1,16 +1,18 @@
 import React, { Component, Fragment } from "react";
 import Header from "./components/Header/index";
-import Sidebar from "./components/Sidebar";
+import Organization from "./components/Organization";
 import "./assets/css/index.css";
 
 class App extends Component {
+  componentWillMount() {
+    document.title = "Workspace";
+  }
+
   render() {
     return (
       <Fragment>
         <Header />
-        <div className="row" id="app">
-          <Sidebar />
-        </div>
+        <Organization />
       </Fragment>
     );
   }
