@@ -43,7 +43,46 @@ class Overview extends Component {
           </div>
           <div className="row mt-5">
             <div className="col-3 text-color-primary">Analyzis Grid</div>
-            <div className="col-9 text-color-secondary">Grid</div>
+            <div className="col-9 text-color-secondary">
+              <table className="table">
+                <thead>
+                  <tr>
+                    <th id="removed-cell" scope="col" />
+                    <th scope="col">Goal#1</th>
+                    <th scope="col">Goal#2</th>
+                    <th scope="col">Goal#3</th>
+                    <th scope="col">Goal#4</th>
+                    <th scope="col">Goal#5</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">Process#1</th>
+                    <td>Program</td>
+                    <td>Program</td>
+                    <td>Program</td>
+                    <td>Program</td>
+                    <td>Program</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Process#2</th>
+                    <td>Program</td>
+                    <td>Program</td>
+                    <td>Program</td>
+                    <td>Program</td>
+                    <td>Program</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Process#3</th>
+                    <td>Program</td>
+                    <td>Program</td>
+                    <td>Program</td>
+                    <td>Program</td>
+                    <td>Program</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
           </div>
         </div>
       </div>
