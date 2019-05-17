@@ -4,6 +4,7 @@ import Home from "./Home";
 import SignIn from "./Home/components/SignIn";
 import SignUp from "./Home/components/SignUp";
 import App from "./App";
+import Strategy from "./App/components/Strategy";
 
 const NotFound = () => <h2>Not Found !</h2>;
 
@@ -16,6 +17,7 @@ class Routes extends Component {
           <Route path="/sign-in" component={SignIn} exact />
           <Route path="/sign-up" component={SignUp} exact />
           <Route path="/app" component={App} exact />
+          <Route path="/app/strategy" component={Strategy} exact />
           <Route component={NotFound} />
         </Switch>
       </Router>
