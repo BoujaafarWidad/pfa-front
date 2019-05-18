@@ -67,10 +67,7 @@ class Header extends Component {
           <div className="modal-dialog modal-dialog-centered" role="document">
             <div className="modal-content">
               <div className="modal-header">
-                <h5
-                  className="modal-title text-color-primary text-align-center"
-                  id="new-organization"
-                >
+                <h5 className="modal-title text-color-primary" id="contact">
                   Get in touch!
                 </h5>
               </div>
