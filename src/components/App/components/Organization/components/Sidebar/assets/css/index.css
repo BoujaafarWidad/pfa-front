@@ -53,3 +53,11 @@
 #sidebar .list-group-item {
   font-size: 20px;
 }
+
+.modal-header h5 {
+  padding-left: 110px !important;
+}
+
+.finish-button {
+  margin-left: 240px;
+}

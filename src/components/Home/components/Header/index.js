@@ -37,7 +37,7 @@ class Header extends Component {
                 </a>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="!#">
+                <a className="nav-link" data-toggle="modal" href="#contact">
                   <span>Contact</span>
                 </a>
               </li>
@@ -56,6 +56,28 @@ class Header extends Component {
             </ul>
           </div>
         </nav>
+        <div
+          className="modal fade"
+          id="contact"
+          tabIndex="-1"
+          role="dialog"
+          aria-labelledby="exampleModalCenterTitle"
+          aria-hidden="true"
+        >
+          <div className="modal-dialog modal-dialog-centered" role="document">
+            <div className="modal-content">
+              <div className="modal-header">
+                <h5
+                  className="modal-title text-color-primary text-align-center"
+                  id="new-organization"
+                >
+                  Get in touch!
+                </h5>
+              </div>
+              <div className="modal-body" />
+            </div>
+          </div>
+        </div>
       </header>
     );
   }

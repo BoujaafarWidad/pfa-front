@@ -36,3 +36,11 @@
 #navbar .navbar-toggler:hover {
   background-color: #f1f1f1;
 }
+
+.modal-header h5 {
+  padding-left: 110px !important;
+}
+
+.finish-button {
+  margin-left: 240px;
+}
