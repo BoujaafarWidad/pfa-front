@@ -92,11 +92,11 @@ class Sidebar extends Component {
                   </div>
 
                   <button type="submit" className="btn primary-btn float-right">
-                    Cancel
+                    Finish
                   </button>
-                  <div className="finish-button">
+                  <div className="cancel-button">
                     <button type="submit" className="btn primary-btn ">
-                      Finish
+                      Cancel
                     </button>
                   </div>
                 </form>

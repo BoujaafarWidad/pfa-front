@@ -54,10 +54,11 @@
   font-size: 20px;
 }
 
-#new-organization {
-  padding-left: 110px !important;
+.modal {
+  width: 100%;
+  margin: 0 auto;
 }
 
-.finish-button {
+.cancel-button {
   margin-left: 240px;
 }

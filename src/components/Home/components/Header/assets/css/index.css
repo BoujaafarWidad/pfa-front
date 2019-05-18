@@ -37,10 +37,17 @@
   background-color: #f1f1f1;
 }
 
-#contact {
-  padding-left: 170px !important;
+.cancel-button {
+  margin-left: 240px;
+}
+.modal {
+  width: 100%;
+  margin: 0 auto;
+}
+.modal-title {
+  margin: 0 auto;
 }
 
-.finish-button {
-  margin-left: 240px;
+#contact {
+  border-bottom: 4px solid #707070;
 }

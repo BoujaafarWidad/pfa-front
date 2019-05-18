@@ -67,11 +67,78 @@ class Header extends Component {
           <div className="modal-dialog modal-dialog-centered" role="document">
             <div className="modal-content">
               <div className="modal-header">
-                <h5 className="modal-title text-color-primary" id="contact">
+                <h5 className="modal-title text-color-primary " id="contact">
                   Get in touch!
                 </h5>
               </div>
-              <div className="modal-body" />
+              <div className="modal-body">
+                <form id="first-form">
+                  <div className="row">
+                    <div className="col">
+                      <div className="form-group">
+                        <label
+                          htmlFor="first-name"
+                          className="text-color-primary"
+                        >
+                          First Name *
+                        </label>
+                        <input
+                          type="text"
+                          className="form-control text-color-primary"
+                          id="name"
+                          placeholder="John"
+                        />
+                      </div>
+                    </div>
+                    <div className="col">
+                      <div className="form-group">
+                        <label
+                          htmlFor="second-name"
+                          className="text-color-primary"
+                        >
+                          Second name *
+                        </label>
+                        <input
+                          type="text"
+                          className="form-control text-color-primary"
+                          id="name"
+                          placeholder="Doe"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  <div className="form-group">
+                    <label htmlFor="email" className="text-color-primary">
+                      Email *
+                    </label>
+                    <input
+                      type="text"
+                      className="form-control text-color-primary"
+                      id="name"
+                      placeholder="john.doe@gmail.com"
+                    />
+                  </div>
+                  <div className="form-group">
+                    <label htmlFor="thoughts" className="text-color-primary">
+                      Your thoughts *
+                    </label>
+                    <textarea
+                      className="form-control"
+                      rows="3"
+                      id="description"
+                      placeholder=" "
+                    />
+                  </div>
+                  <button type="submit" className="btn primary-btn float-right">
+                    Send
+                  </button>
+                  <div className="cancel-button">
+                    <button type="submit" className="btn primary-btn ">
+                      Cancel
+                    </button>
+                  </div>
+                </form>
+              </div>
             </div>
           </div>
         </div>
