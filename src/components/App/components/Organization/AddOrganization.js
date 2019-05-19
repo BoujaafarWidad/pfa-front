@@ -5,7 +5,7 @@ import Header from "../Header";
 
 class AddOrganization extends Component {
   componentWillMount() {
-    document.title = "Workspace - New organization";
+    document.title = "Workspace";
   }
 
   render() {

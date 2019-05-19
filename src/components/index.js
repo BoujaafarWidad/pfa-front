@@ -7,6 +7,7 @@ import App from "./App";
 import Strategy from "./App/components/Strategy";
 import AddOrganization from "./App/components/Organization/AddOrganization";
 import UpdateOrganization from "./App/components/Organization/UpdateOrganization";
+import AddStrategy from "./App/components/Organization/AddStrategy";
 
 const NotFound = () => <h2>Not Found !</h2>;
 
@@ -25,11 +26,20 @@ class Routes extends Component {
             exact
           />
           <Route
-            path="/app/organizations/update/:id"
+            path="/app/organizations/:idOrganization/update"
             component={UpdateOrganization}
             exact
           />
-          <Route path="/app/strategy" component={Strategy} exact />
+          <Route
+            path="/app/organizations/:idOrganization/strategies/new"
+            component={AddStrategy}
+            exact
+          />
+          <Route
+            path="/app/organizations/:idOrganization/strategies/:idStrategy"
+            component={Strategy}
+            exact
+          />
           <Route component={NotFound} />
         </Switch>
       </Router>

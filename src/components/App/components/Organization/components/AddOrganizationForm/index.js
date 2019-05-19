@@ -7,7 +7,8 @@ class AddOrganizationForm extends Component {
       <div className="col-9 pt-3" id="main">
         <div className="pr-3 row" id="main-bar">
           <div className="col">
-            <h4 className="text-color-primary">Add new organization</h4>
+            <span className="text-color-secondary">Workspace / </span>
+            <span className="text-color-primary">Add organization</span>
           </div>
         </div>
         <div className="row pt-5 pr-3 mt-5">

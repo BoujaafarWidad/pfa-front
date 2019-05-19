@@ -1,10 +1,9 @@
 import React, { Component, Fragment } from "react";
-import "./assets/css/index.css";
+import AddStrategyForm from "./components/AddStrategyForm";
 import Sidebar from "./components/Sidebar";
-import Main from "./components/Main";
 import Header from "../Header";
 
-class Organization extends Component {
+class AddStrategy extends Component {
   componentWillMount() {
     document.title = "Workspace";
   }
@@ -13,13 +12,13 @@ class Organization extends Component {
     return (
       <Fragment>
         <Header />
-        <div className="row" id="organization">
+        <div className="row" id="strategy-add">
           <Sidebar />
-          <Main />
+          <AddStrategyForm />
         </div>
       </Fragment>
     );
   }
 }
 
-export default Organization;
+export default AddStrategy;

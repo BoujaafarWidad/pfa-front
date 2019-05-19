@@ -3,10 +3,6 @@ import Organization from "./components/Organization";
 import "./assets/css/index.css";
 
 class App extends Component {
-  componentWillMount() {
-    document.title = "Workspace";
-  }
-
   render() {
     return (
       <Fragment>

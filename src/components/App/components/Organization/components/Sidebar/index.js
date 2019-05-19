@@ -35,7 +35,7 @@ class Sidebar extends Component {
                 </Link>
               </li>
               <li className="list-group-item">
-                <Link to="/app/organizations/update/1" className="primary-link">
+                <Link to="/app/organizations/1/update" className="primary-link">
                   <i className="fas fa-cog mr-3" />
                   Update Organization
                 </Link>

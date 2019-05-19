@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "./assets/css/index.css";
 
-class UpdateOrganizationForm extends Component {
+class AddStrategyForm extends Component {
   render() {
     return (
       <div className="col-9 pt-3" id="main">
@@ -10,13 +10,13 @@ class UpdateOrganizationForm extends Component {
             <span className="text-color-secondary">
               Workspace / Organization /{" "}
             </span>
-            <span className="text-color-primary">Update organization</span>
+            <span className="text-color-primary">Add strategy</span>
           </div>
         </div>
         <div className="row pt-5 pr-3 mt-5">
           <div className="col-3" />
           <div className="col-6">
-            <form id="organization-update-form">
+            <form id="strategy-add-form">
               <div className="form-group">
                 <label htmlFor="nom" className="text-color-primary">
                   Name
@@ -25,29 +25,38 @@ class UpdateOrganizationForm extends Component {
                   type="text"
                   id="nom"
                   className="form-control"
-                  placeholder="Akatsuki"
+                  placeholder="Marketing Mix"
                 />
               </div>
               <div className="form-group">
-                <label htmlFor="phone" className="text-color-primary">
-                  Phone
+                <label htmlFor="strategist" className="text-color-primary">
+                  Strategist
                 </label>
                 <input
                   type="text"
-                  id="phone"
-                  className="form-control text-color-secondary"
-                  placeholder="+1-541-754-3010"
+                  id="strategist"
+                  className="form-control"
+                  placeholder="John Doe"
                 />
               </div>
               <div className="form-group">
-                <label htmlFor="address" className="text-color-primary">
-                  Address
+                <label htmlFor="start-date" className="text-color-primary">
+                  Start date
                 </label>
                 <input
-                  type="text"
-                  id="address"
+                  type="date"
+                  id="start-date"
                   className="form-control text-color-secondary"
-                  placeholder="445 Mount Eden Road, Mount Eden, Auckland."
+                />
+              </div>
+              <div className="form-group">
+                <label htmlFor="end-date" className="text-color-primary">
+                  End date
+                </label>
+                <input
+                  type="date"
+                  id="end-date"
+                  className="form-control text-color-secondary"
                 />
               </div>
               <div className="form-group">
@@ -56,11 +65,11 @@ class UpdateOrganizationForm extends Component {
                   className="form-control"
                   id="description"
                   rows="3"
-                  placeholder="A group of shinobi that existed outside the usual system of hidden villages."
+                  placeholder="The marketing mix can be divided into four groups of variables commonly known as the four Ps."
                 />
               </div>
               <button type="submit" className="btn primary-btn">
-                Update
+                Submit
               </button>
             </form>
           </div>
@@ -70,4 +79,4 @@ class UpdateOrganizationForm extends Component {
   }
 }
 
-export default UpdateOrganizationForm;
+export default AddStrategyForm;

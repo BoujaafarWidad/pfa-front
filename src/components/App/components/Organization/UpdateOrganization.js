@@ -5,7 +5,7 @@ import Header from "../Header";
 
 class UpdateOrganization extends Component {
   componentWillMount() {
-    document.title = "Workspace - Update organization";
+    document.title = "Workspace";
   }
 
   render() {

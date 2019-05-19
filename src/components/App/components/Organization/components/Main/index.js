@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "./assets/css/index.css";
+import { Link } from "react-router-dom";
 
 class Main extends Component {
   render() {
@@ -7,13 +8,17 @@ class Main extends Component {
       <div className="col-9 p-3" id="main">
         <div className="row pr-3" id="main-bar">
           <div className="col-6 text-left">
-            <h4 className="text-color-primary">Organization</h4>
+            <span className="text-color-secondary">Workspace / </span>
+            <span className="text-color-primary">Strategy</span>
           </div>
           <div className="col-6 text-right">
-            <button className="btn primary-btn">
-              <i className="fas fa-user-plus mr-3" />
-              Invite
-            </button>
+            <Link
+              className="btn primary-btn"
+              to="/app/organizations/1/strategies/new"
+            >
+              <i className="fas fa-plus mr-3" />
+              Add strategy
+            </Link>
           </div>
         </div>
         <div className="pt-5 pr-3">
