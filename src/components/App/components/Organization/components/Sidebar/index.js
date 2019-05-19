@@ -36,62 +36,6 @@ class Sidebar extends Component {
             </ul>
           </div>
         </div>
-        <div
-          className="modal fade"
-          id="new-organization"
-          tabIndex="-1"
-          role="dialog"
-          aria-labelledby="exampleModalCenterTitle"
-          aria-hidden="true"
-        >
-          <div className="modal-dialog modal-dialog-centered" role="document">
-            <div className="modal-content">
-              <div className="modal-header">
-                <h5
-                  className="modal-title text-color-primary"
-                  id="new-organization"
-                >
-                  Create new organization
-                </h5>
-              </div>
-              <div className="modal-body">
-                <form id="first-form">
-                  <div className="form-group">
-                    <label htmlFor="name" className="text-color-primary">
-                      Name
-                    </label>
-                    <input
-                      type="text"
-                      className="form-control text-color-primary"
-                      id="name"
-                      placeholder="Organization"
-                    />
-                  </div>
-                  <div className="form-group">
-                    <label htmlFor="last-name" className="text-color-primary">
-                      Description
-                    </label>
-                    <textarea
-                      className="form-control"
-                      rows="3"
-                      id="description"
-                      placeholder="Description..."
-                    />
-                  </div>
-
-                  <button type="submit" className="btn primary-btn float-right">
-                    Finish
-                  </button>
-                  <div className="cancel-button">
-                    <button type="submit" className="btn primary-btn ">
-                      Cancel
-                    </button>
-                  </div>
-                </form>
-              </div>
-            </div>
-          </div>
-        </div>
       </Fragment>
     );
   }
