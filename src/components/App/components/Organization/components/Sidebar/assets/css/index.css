@@ -36,6 +36,11 @@
   cursor: default !important;
 }
 
+.squared-btn {
+  width: 200px !important;
+  text-align: left !important;
+}
+
 .organization-logo {
   height: 38px;
   width: 38px;

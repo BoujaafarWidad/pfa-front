@@ -1,19 +1,19 @@
 import React, { Component } from "react";
 import "./assets/css/index.css";
 
-class AddOrganizationForm extends Component {
+class UpdateOrganizationForm extends Component {
   render() {
     return (
       <div className="col-9 pt-3" id="main">
         <div className="pr-3 row" id="main-bar">
           <div className="col">
-            <h4 className="text-color-primary">Add new organization</h4>
+            <h4 className="text-color-primary">Update organization</h4>
           </div>
         </div>
         <div className="row pt-5 pr-3 mt-5">
           <div className="col-3" />
           <div className="col-6">
-            <form id="organization-add-form">
+            <form id="organization-update-form">
               <div className="form-group">
                 <label htmlFor="nom" className="text-color-primary">
                   Name
@@ -57,7 +57,7 @@ class AddOrganizationForm extends Component {
                 />
               </div>
               <button type="submit" className="btn primary-btn">
-                Submit
+                Update
               </button>
             </form>
           </div>
@@ -67,4 +67,4 @@ class AddOrganizationForm extends Component {
   }
 }
 
-export default AddOrganizationForm;
+export default UpdateOrganizationForm;

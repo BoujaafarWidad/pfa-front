@@ -48,3 +48,19 @@ body {
 .dropdown-toggle::after {
   content: none;
 }
+
+.primary-link {
+  text-decoration: none !important;
+  cursor: pointer !important;
+  color: #707070 !important;
+}
+
+.primary-link:hover {
+  text-decoration: underline !important;
+}
+
+.cursor-pointer,
+.cursor-pointer a,
+.cursor-pointer button {
+  cursor: pointer !important;
+}

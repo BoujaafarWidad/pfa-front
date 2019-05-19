@@ -1,0 +1,13 @@
+#main i {
+  color: black !important;
+}
+
+#main-bar {
+  box-shadow: 0px 2px 0px #f1f1f1;
+}
+
+#organization-update-form button {
+  position: absolute;
+  right: 0;
+  margin-right: 1rem;
+}
