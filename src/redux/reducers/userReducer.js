@@ -1,8 +1,8 @@
 const defaultState = {
-  id: "1",
+  id: 3,
   nom: "admin",
-  email: "admin@gmail.com",
-  tel: "+212612312300"
+  email: "admin@admin.com",
+  tel: "+212614789632"
 };
 
 const userReducer = (oldState = defaultState, action) => oldState;

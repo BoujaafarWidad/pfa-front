@@ -3,7 +3,7 @@ import "./assets/css/index.css";
 import { connect } from "react-redux";
 import { newOrganization } from "../../../../../../redux/actions/organizationActions";
 import { Redirect } from "react-router-dom";
-import shortId from "shortid";
+import axios from "axios";
 
 class AddOrganizationForm extends Component {
   constructor(props) {
@@ -21,16 +21,25 @@ class AddOrganizationForm extends Component {
 
   _handleFormSubmit = event => {
     event.preventDefault();
-    const id = shortId.generate();
-    this.props.newOrganization({
-      ...this.state,
-      id
-    });
-    this.setState({ redirect: true, id });
+    const organization = {
+      nom: this.state.nom,
+      desc: this.state.desc,
+      adr: this.state.adr,
+      tel: this.state.tel,
+      owner: this.state.owner
+    };
+    axios
+      .post("http://localhost:8080/organisations", organization)
+      .then(res => {
+        this.props.newOrganization(res.data);
+        return res.data.id;
+      })
+      .then(id => this.setState({ id, redirect: true }))
+      .catch(e => console.log(e));
   };
 
   _handleRedirect = () => {
-    if (this.state.redirect) {
+    if (this.state.redirect && this.state.id) {
       return <Redirect to={`/app/organizations/${this.state.id}`} />;
     }
   };

@@ -7,7 +7,8 @@ import shortId from "shortid";
 class Sidebar extends Component {
   _renderOrganization = ({ id, nom }) => (
     <li
-      className={`list-group-item ${this.props.selected === id &&
+      className={`list-group-item ${this.props.selected &&
+        this.props.selected.id === id &&
         "active-organization"}`}
       key={shortId.generate()}
     >
@@ -45,7 +46,7 @@ class Sidebar extends Component {
               {this.props.update && (
                 <li className="list-group-item">
                   <Link
-                    to={`/app/organizations/${this.props.selected}/update`}
+                    to={`/app/organizations/${this.props.selected.id}/update`}
                     className="primary-link"
                   >
                     <i className="fas fa-cog mr-3" />

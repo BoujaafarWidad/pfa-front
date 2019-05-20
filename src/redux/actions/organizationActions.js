@@ -1,30 +1,24 @@
 export const NEW_ORGANIZATION = "NEW_ORGANIZATION";
 export const UPDATE_ORGANIZATION = "UPDATE_ORGANIZATION";
+export const FETCH_ALL_ORGANIZATIONS = "FETCH_ALL_ORGANIZATIONS";
 
-export const newOrganization = ({ id, nom, desc, adr, tel, owner }) => {
+export const fetchAllOrganizations = organizations => {
   return {
-    type: NEW_ORGANIZATION,
-    payload: {
-      id,
-      nom,
-      desc,
-      adr,
-      tel,
-      owner
-    }
+    type: FETCH_ALL_ORGANIZATIONS,
+    payload: organizations
   };
 };
 
-export const updateOrganization = ({ id, nom, desc, adr, tel, owner }) => {
+export const newOrganization = organization => {
+  return {
+    type: NEW_ORGANIZATION,
+    payload: organization
+  };
+};
+
+export const updateOrganization = organization => {
   return {
     type: UPDATE_ORGANIZATION,
-    payload: {
-      id,
-      nom,
-      desc,
-      adr,
-      tel,
-      owner
-    }
+    payload: organization
   };
 };

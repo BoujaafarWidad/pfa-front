@@ -3,23 +3,48 @@ import "./assets/css/index.css";
 import Sidebar from "./components/Sidebar";
 import OrganizationMain from "./components/OrganizationMain";
 import Header from "../Header";
+import { connect } from "react-redux";
 
 class Organization extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      selectedId: -1,
+      selected: null
+    };
+  }
+
   componentWillMount() {
     document.title = "Workspace";
   }
 
+  _fetchSelected = () => {
+    if (this.props.match.params.idOrganization !== this.state.selectedId) {
+      this.setState({
+        selectedId: this.props.match.params.idOrganization,
+        selected: this.props.organizations.find(
+          ({ id }) => id === Number(this.props.match.params.idOrganization)
+        )
+      });
+    }
+  };
+
   render() {
+    this._fetchSelected();
     return (
       <Fragment>
         <Header />
-        <div className="row" id="organization">
-          <Sidebar selected={this.props.match.params.idOrganization} update />
-          <OrganizationMain selected={this.props.match.params.idOrganization} />
-        </div>
+        {this.state.selected && (
+          <div className="row" id="organization">
+            <Sidebar selected={this.state.selected} update />
+            <OrganizationMain selected={this.state.selected} />
+          </div>
+        )}
       </Fragment>
     );
   }
 }
 
-export default Organization;
+const mapStateToProps = ({ organizations }) => ({ organizations });
+
+export default connect(mapStateToProps)(Organization);
