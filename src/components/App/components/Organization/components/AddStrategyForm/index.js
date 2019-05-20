@@ -10,7 +10,7 @@ class AddStrategyForm extends Component {
             <span className="text-color-secondary">
               Workspace / Organization /{" "}
             </span>
-            <span className="text-color-primary">Add strategy</span>
+            <span className="text-color-primary">New strategy</span>
           </div>
         </div>
         <div className="row pt-5 pr-3 mt-5">

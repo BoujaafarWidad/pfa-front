@@ -1,8 +1,33 @@
 import React, { Component, Fragment } from "react";
 import "./assets/css/index.css";
 import { Link } from "react-router-dom";
+import { connect } from "react-redux";
+import shortId from "shortid";
 
 class Sidebar extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      selectedOrganization: -1
+    };
+  }
+
+  _renderOrganization = ({ nom }, idx) => (
+    <li
+      className={`list-group-item ${this.state.selectedOrganization === idx &&
+        "active-organization"}`}
+      onClick={() => this.setState({ selectedOrganization: idx })}
+      key={shortId.generate()}
+    >
+      <Link to="/app/organizations" className="cursor-pointer">
+        <button className="btn organization-logo">
+          {nom.charAt(0).toUpperCase()}
+        </button>
+        <button className="btn squared-btn">{nom}</button>
+      </Link>
+    </li>
+  );
+
   render() {
     return (
       <Fragment>
@@ -10,16 +35,7 @@ class Sidebar extends Component {
           <div id="sidebar-top">
             <h4 className="text-color-primary mb-4 pl-3">My Organizations</h4>
             <ul className="list-group list-group-flush">
-              <li className="list-group-item active-organization">
-                <Link to="/app/organizations" className="cursor-pointer">
-                  <button className="btn organization-logo">O</button>
-                  <button className="btn squared-btn">Organization</button>
-                </Link>
-              </li>
-              <li className="list-group-item">
-                <button className="btn organization-logo">F</button>
-                <button className="btn squared-btn">Foundation</button>
-              </li>
+              {this.props.organizations.map(this._renderOrganization)}
             </ul>
           </div>
           <div id="sidebar-bottom">
@@ -48,4 +64,6 @@ class Sidebar extends Component {
   }
 }
 
-export default Sidebar;
+const mapStateToProps = ({ organizations }) => ({ organizations });
+
+export default connect(mapStateToProps)(Sidebar);
