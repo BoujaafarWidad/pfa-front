@@ -9,6 +9,7 @@ class AddOrganizationForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      id: "",
       nom: "",
       desc: "",
       adr: "",
@@ -20,16 +21,17 @@ class AddOrganizationForm extends Component {
 
   _handleFormSubmit = event => {
     event.preventDefault();
+    const id = shortId.generate();
     this.props.newOrganization({
       ...this.state,
-      id: shortId.generate()
+      id
     });
-    this.setState({ redirect: true });
+    this.setState({ redirect: true, id });
   };
 
   _handleRedirect = () => {
     if (this.state.redirect) {
-      return <Redirect to="/app/organizations" />;
+      return <Redirect to={`/app/organizations/${this.state.id}`} />;
     }
   };
 
