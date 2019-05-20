@@ -1,7 +1,15 @@
-.page-section {
-  background-color: aqua;
+.view {
+  position: relative;
 }
 
-.page-section1 {
-  background-image: url(https://images.unsplash.com/photo-1542627250-da40d2d18228?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80);
+#section1 {
+  padding-top: 200px;
+  padding-bottom: 200px;
+  background-color: white;
+}
+
+#section2 {
+  padding-top: 200px;
+  padding-bottom: 200px;
+  background-color: #adadad;
 }
