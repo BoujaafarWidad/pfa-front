@@ -1,14 +1,24 @@
 import React, { Component } from "react";
 import "./assets/css/index.css";
+import { connect } from "react-redux";
 
 class AddStrategyForm extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      selected: this.props.organizations.find(
+        ({ id }) => id === this.props.selected
+      )
+    };
+  }
+
   render() {
     return (
       <div className="col-9 pt-3" id="main">
         <div className="pr-3 row" id="main-bar">
           <div className="col">
             <span className="text-color-secondary">
-              Workspace / Organization /{" "}
+              Workspace / {this.state.selected.nom} /{" "}
             </span>
             <span className="text-color-primary">New strategy</span>
           </div>
@@ -79,4 +89,6 @@ class AddStrategyForm extends Component {
   }
 }
 
-export default AddStrategyForm;
+const mapStateToProps = ({ organizations }) => ({ organizations });
+
+export default connect(mapStateToProps)(AddStrategyForm);

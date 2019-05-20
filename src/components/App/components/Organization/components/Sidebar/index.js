@@ -5,21 +5,13 @@ import { connect } from "react-redux";
 import shortId from "shortid";
 
 class Sidebar extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      selectedOrganization: -1
-    };
-  }
-
-  _renderOrganization = ({ nom }, idx) => (
+  _renderOrganization = ({ id, nom }) => (
     <li
-      className={`list-group-item ${this.state.selectedOrganization === idx &&
+      className={`list-group-item ${this.props.selected === id &&
         "active-organization"}`}
-      onClick={() => this.setState({ selectedOrganization: idx })}
       key={shortId.generate()}
     >
-      <Link to="/app/organizations" className="cursor-pointer">
+      <Link to={`/app/organizations/${id}`} className="cursor-pointer">
         <button className="btn organization-logo">
           {nom.charAt(0).toUpperCase()}
         </button>
@@ -50,12 +42,17 @@ class Sidebar extends Component {
                   New Organization
                 </Link>
               </li>
-              <li className="list-group-item">
-                <Link to="/app/organizations/1/update" className="primary-link">
-                  <i className="fas fa-cog mr-3" />
-                  Update Organization
-                </Link>
-              </li>
+              {this.props.update && (
+                <li className="list-group-item">
+                  <Link
+                    to={`/app/organizations/${this.props.selected}/update`}
+                    className="primary-link"
+                  >
+                    <i className="fas fa-cog mr-3" />
+                    Update Organization
+                  </Link>
+                </li>
+              )}
             </ul>
           </div>
         </div>

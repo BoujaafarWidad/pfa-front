@@ -1,9 +1,10 @@
 import React, { Component, Fragment } from "react";
-import AddStrategyForm from "./components/AddStrategyForm";
+import "./assets/css/index.css";
 import Sidebar from "./components/Sidebar";
+import OrganizationMain from "./components/OrganizationMain";
 import Header from "../Header";
 
-class AddStrategy extends Component {
+class Organization extends Component {
   componentWillMount() {
     document.title = "Workspace";
   }
@@ -12,13 +13,13 @@ class AddStrategy extends Component {
     return (
       <Fragment>
         <Header />
-        <div className="row" id="strategy-add">
+        <div className="row" id="organization">
           <Sidebar selected={this.props.match.params.idOrganization} update />
-          <AddStrategyForm selected={this.props.match.params.idOrganization} />
+          <OrganizationMain selected={this.props.match.params.idOrganization} />
         </div>
       </Fragment>
     );
   }
 }
 
-export default AddStrategy;
+export default Organization;

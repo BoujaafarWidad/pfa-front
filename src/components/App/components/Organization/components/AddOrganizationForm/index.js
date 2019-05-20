@@ -3,6 +3,7 @@ import "./assets/css/index.css";
 import { connect } from "react-redux";
 import { newOrganization } from "../../../../../../redux/actions/organizationActions";
 import { Redirect } from "react-router-dom";
+import shortId from "shortid";
 
 class AddOrganizationForm extends Component {
   constructor(props) {
@@ -19,7 +20,10 @@ class AddOrganizationForm extends Component {
 
   _handleFormSubmit = event => {
     event.preventDefault();
-    this.props.newOrganization(this.state);
+    this.props.newOrganization({
+      ...this.state,
+      id: shortId.generate()
+    });
     this.setState({ redirect: true });
   };
 
@@ -117,7 +121,7 @@ class AddOrganizationForm extends Component {
   }
 }
 
-const mapStateToProps = ({ user }) => user;
+const mapStateToProps = ({ user }) => ({ user });
 
 export default connect(
   mapStateToProps,

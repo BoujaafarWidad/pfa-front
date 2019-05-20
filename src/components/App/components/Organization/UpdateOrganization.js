@@ -13,8 +13,10 @@ class UpdateOrganization extends Component {
       <Fragment>
         <Header />
         <div className="row" id="organization-update">
-          <Sidebar />
-          <UpdateOrganizationForm />
+          <Sidebar selected={this.props.match.params.idOrganization} update />
+          <UpdateOrganizationForm
+            selected={this.props.match.params.idOrganization}
+          />
         </div>
       </Fragment>
     );
