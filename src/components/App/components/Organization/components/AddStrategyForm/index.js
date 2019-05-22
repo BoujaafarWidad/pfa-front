@@ -84,20 +84,40 @@ class AddStrategyForm extends Component {
                     }
                   />
                 </div>
-                <div className="form-group">
+                <div className="mb-3">
                   <label htmlFor="stratege" className="text-color-primary">
                     Strategist
                   </label>
-                  <input
-                    type="text"
-                    id="stratege"
-                    className="form-control"
-                    placeholder="John Doe"
-                    value={this.state.stratege}
-                    onChange={event =>
-                      this.setState({ stratege: event.target.value })
-                    }
-                  />
+                  <div class="input-group">
+                    <input
+                      type="text"
+                      id="stratege"
+                      class="form-control"
+                      placeholder="John Doe"
+                      aria-label="John Doe"
+                      aria-describedby="users-loading-spinner"
+                      value={this.state.stratege}
+                      onChange={event =>
+                        this.setState({ stratege: event.target.value })
+                      }
+                    />
+                    <div class="input-group-append">
+                      <span class="input-group-text" id="users-loading-spinner">
+                        <div class="spinner-border spinner-border-sm" />
+                      </span>
+                    </div>
+                  </div>
+                  <ul className="list-group" id="strategist-suggestion">
+                    <li className="list-group-item list-group-item-action">
+                      1
+                    </li>
+                    <li className="list-group-item list-group-item-action">
+                      1
+                    </li>
+                    <li className="list-group-item list-group-item-action">
+                      1
+                    </li>
+                  </ul>
                 </div>
                 <div className="form-group">
                   <label htmlFor="start-date" className="text-color-primary">

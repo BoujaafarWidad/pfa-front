@@ -26,7 +26,11 @@ class Sidebar extends Component {
       <Fragment>
         <div className="col-3 pt-4" id="sidebar">
           <div id="sidebar-top">
-            <h4 className="text-color-primary mb-4 pl-3">My Organizations</h4>
+            <h4 className="text-color-primary mb-4 pl-3">
+              <Link className="primary-link" to="/app/organizations">
+                My Organizations
+              </Link>
+            </h4>
             <ul className="list-group list-group-flush">
               {this.props.organizations.map(this._renderOrganization)}
             </ul>

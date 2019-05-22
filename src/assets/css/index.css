@@ -64,3 +64,7 @@ body {
 .cursor-pointer button {
   cursor: pointer !important;
 }
+
+.list-group-item-action {
+  cursor: pointer;
+}

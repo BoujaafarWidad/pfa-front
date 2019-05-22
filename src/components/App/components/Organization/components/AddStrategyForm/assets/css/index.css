@@ -11,3 +11,16 @@
   right: 0;
   margin-right: 1rem;
 }
+
+#strategist-suggestion .list-group-item {
+  border-radius: 0 !important;
+}
+
+#strategitst-suggestion:first-child {
+  border-top: none !important;
+}
+/* 
+#users-loading-spinner .spinner-grow {
+  height: 38px !important;
+  width: 38px !important;
+} */
