@@ -3,7 +3,6 @@ import "./assets/css/index.css";
 import { connect } from "react-redux";
 import { newStrategy } from "../../../../../../redux/actions/strategyActions";
 import { Redirect } from "react-router-dom";
-import shortId from "shortid";
 import axios from "axios";
 
 class AddStrategyForm extends Component {

@@ -38,7 +38,7 @@ class Sidebar extends Component {
             <ul className="list-group list-group-flush">
               <li className="list-group-item">
                 <Link
-                  to="app/organizations/1/strategies/1/update"
+                  to="/app/organizations/1/strategies/1/update"
                   className="primary-link"
                 >
                   <i className="fas fa-cog mr-3" />
