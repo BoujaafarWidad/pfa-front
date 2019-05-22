@@ -4,6 +4,11 @@ import Sidebar from "./components/Sidebar";
 import OrganizationMain from "./components/OrganizationMain";
 import Header from "../Header";
 import { connect } from "react-redux";
+import { fetchAllOrganizations } from "../../../../redux/actions/organizationActions";
+import { fetchAllStrategies } from "../../../../redux/actions/strategyActions";
+import { setDataFetched } from "../../../../redux/actions/dataFetchedActions";
+import axios from "axios";
+import Spinner from "../Spinner";
 
 class Organization extends Component {
   constructor(props) {
@@ -16,6 +21,19 @@ class Organization extends Component {
 
   componentWillMount() {
     document.title = "Workspace";
+    if (!this.props.dataFetched) {
+      axios
+        .get(`http://localhost:8080/organisations/owner/${this.props.user.id}`)
+        .then(res => this.props.fetchAllOrganizations(res.data))
+        .then(() =>
+          axios
+            .get(`http://localhost:8080/strategies/owner/${this.props.user.id}`)
+            .then(res => this.props.fetchAllStrategies(res.data))
+            .catch(e => console.log(e))
+        )
+        .then(() => this.props.setDataFetched())
+        .catch(e => console.log(e));
+    }
   }
 
   _fetchSelected = () => {
@@ -30,21 +48,30 @@ class Organization extends Component {
   };
 
   render() {
-    this._fetchSelected();
+    if (this.props.dataFetched) {
+      this._fetchSelected();
+    }
     return (
       <Fragment>
         <Header />
-        {this.state.selected && (
+        {(this.state.selected && (
           <div className="row" id="organization">
             <Sidebar selected={this.state.selected} update />
             <OrganizationMain selected={this.state.selected} />
           </div>
-        )}
+        )) || <Spinner />}
       </Fragment>
     );
   }
 }
 
-const mapStateToProps = ({ organizations }) => ({ organizations });
+const mapStateToProps = ({ dataFetched, user, organizations }) => ({
+  dataFetched,
+  user,
+  organizations
+});
 
-export default connect(mapStateToProps)(Organization);
+export default connect(
+  mapStateToProps,
+  { fetchAllOrganizations, fetchAllStrategies, setDataFetched }
+)(Organization);
