@@ -4,17 +4,21 @@ import { connect } from "react-redux";
 import { newStrategy } from "../../../../../../redux/actions/strategyActions";
 import { Redirect } from "react-router-dom";
 import axios from "axios";
+import shortId from "shortid";
 
 class AddStrategyForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
       nom: "",
-      stratege: "",
+      strategeInput: "",
+      stratege: {},
       desc: "",
       dateDebut: "",
       dateFin: "",
-      redirect: false
+      redirect: false,
+      fetchingSuggestions: false,
+      suggestedStrategists: []
     };
   }
 
@@ -22,27 +26,16 @@ class AddStrategyForm extends Component {
     event.preventDefault();
     const strategy = {
       nom: this.state.nom,
+      stratege: this.state.stratege,
       desc: this.state.desc,
       dateDebut: this.state.dateDebut,
       dateFin: this.state.dateFin,
       organisation: this.props.selected
     };
     axios
-      .get(`http://localhost:8080/utilisateurs/nom/${this.state.stratege}`)
-      .then(res => {
-        console.log({
-          ...strategy,
-          stratege: res.data
-        });
-        axios
-          .post("http://localhost:8080/strategies", {
-            ...strategy,
-            stratege: res.data
-          })
-          .then(res => this.props.newStrategy(res.data))
-          .then(this.setState({ redirect: true }))
-          .catch(e => console.log(e));
-      })
+      .post("http://localhost:8080/strategies", strategy)
+      .then(res => this.props.newStrategy(res.data))
+      .then(this.setState({ redirect: true }))
       .catch(e => console.log(e));
   };
 
@@ -51,6 +44,52 @@ class AddStrategyForm extends Component {
       return <Redirect to={`/app/organizations/${this.props.selected.id}`} />;
     }
   };
+
+  _handleStrategistInputChange = event => {
+    this.setState(
+      { strategeInput: event.target.value, fetchingSuggestions: true },
+      () => {
+        if (this.state.strategeInput.length !== 0) {
+          axios
+            .get(
+              `http://localhost:8080/utilisateurs/nom/${
+                this.state.strategeInput
+              }`
+            )
+            .then(res => this.setState({ suggestedStrategists: res.data }))
+            .then(this.setState({ fetchingSuggestions: false }))
+            .catch(e => console.log(e));
+        } else {
+          this.setState({
+            suggestedStrategists: [],
+            fetchingSuggestions: false
+          });
+        }
+      }
+    );
+  };
+
+  _handleSuggestionClick = idx => {
+    this.setState(
+      {
+        stratege: this.state.suggestedStrategists[idx],
+        strategeInput: this.state.suggestedStrategists[idx].nom
+      },
+      () => {
+        this.setState({ suggestedStrategists: [] });
+      }
+    );
+  };
+
+  _renderUserSuggestion = ({ nom }, idx) => (
+    <li
+      className="list-group-item list-group-item-action"
+      key={shortId.generate()}
+      onClick={() => this._handleSuggestionClick(idx)}
+    >
+      {nom}
+    </li>
+  );
 
   render() {
     return (
@@ -88,35 +127,32 @@ class AddStrategyForm extends Component {
                   <label htmlFor="stratege" className="text-color-primary">
                     Strategist
                   </label>
-                  <div class="input-group">
+                  <div className="input-group">
                     <input
                       type="text"
                       id="stratege"
-                      class="form-control"
+                      className="form-control"
                       placeholder="John Doe"
                       aria-label="John Doe"
                       aria-describedby="users-loading-spinner"
-                      value={this.state.stratege}
-                      onChange={event =>
-                        this.setState({ stratege: event.target.value })
-                      }
+                      value={this.state.strategeInput}
+                      onChange={this._handleStrategistInputChange}
                     />
-                    <div class="input-group-append">
-                      <span class="input-group-text" id="users-loading-spinner">
-                        <div class="spinner-border spinner-border-sm" />
-                      </span>
-                    </div>
+                    {this.state.fetchingSuggestions && (
+                      <div className="input-group-append">
+                        <span
+                          className="input-group-text"
+                          id="users-loading-spinner"
+                        >
+                          <div className="spinner-border spinner-border-sm" />
+                        </span>
+                      </div>
+                    )}
                   </div>
                   <ul className="list-group" id="strategist-suggestion">
-                    <li className="list-group-item list-group-item-action">
-                      1
-                    </li>
-                    <li className="list-group-item list-group-item-action">
-                      1
-                    </li>
-                    <li className="list-group-item list-group-item-action">
-                      1
-                    </li>
+                    {this.state.suggestedStrategists.map(
+                      this._renderUserSuggestion
+                    )}
                   </ul>
                 </div>
                 <div className="form-group">
