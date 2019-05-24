@@ -11,6 +11,7 @@ import AddStrategy from "./App/components/Organization/AddStrategy";
 import Organization from "./App/components/Organization/Organization";
 import UpdateStrategy from "./App/components/Strategy/UpdateStrategy";
 import NotFound from "./NotFound/index";
+import Profile from "./App/components/Profile";
 
 class Routes extends Component {
   render() {
@@ -21,6 +22,7 @@ class Routes extends Component {
           <Route path="/sign-in" component={SignIn} exact />
           <Route path="/sign-up" component={SignUp} exact />
           <Route path="/app/organizations" component={App} exact />
+          <Route path="/app/profile" component={Profile} exact />>
           <Route
             path="/app/organizations/new"
             component={AddOrganization}
