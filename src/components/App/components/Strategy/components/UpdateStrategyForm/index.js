@@ -14,6 +14,10 @@ class UpdateStrategyForm extends Component {
       desc: this.props.selected.desc,
       dateDebut: this.props.selected.dateDebut,
       dateFin: this.props.selected.dateFin,
+      sItems: this.props.selected.swot.sItems,
+      wItems: this.props.selected.swot.wItems,
+      oItems: this.props.selected.swot.oItems,
+      tItems: this.props.selected.swot.tItems,
       redirect: false,
       fetchingSuggestions: false,
       suggestedStrategists: []
@@ -219,44 +223,52 @@ class UpdateStrategyForm extends Component {
                   <div className="col">
                     <div className="swot-header swot-header-s">S</div>
                     <div className="swot-body swot-body-s">
-                      <ul>
-                        {this.props.selected.swot.sItems.map(
-                          this._renderSWOTItem
-                        )}
-                      </ul>
+                      <ul>{this.state.sItems.map(this._renderSWOTItem)}</ul>
+                      <span className="primary-link">
+                        <i className="fas fa-plus mr-2" />
+                        Add item
+                      </span>
                     </div>
                   </div>
                   <div className="col">
                     <div className="swot-header swot-header-w">W</div>
                     <div className="swot-body swot-body-w">
-                      <ul>
-                        {this.props.selected.swot.wItems.map(
-                          this._renderSWOTItem
-                        )}
-                      </ul>
+                      <ul>{this.state.wItems.map(this._renderSWOTItem)}</ul>
+                      <span className="primary-link">
+                        <i className="fas fa-plus mr-2" />
+                        Add item
+                      </span>
                     </div>
                   </div>
                   <div className="col">
                     <div className="swot-header swot-header-o">O</div>
                     <div className="swot-body swot-body-o">
-                      <ul>
-                        {this.props.selected.swot.oItems.map(
-                          this._renderSWOTItem
-                        )}
-                      </ul>
+                      <ul>{this.state.oItems.map(this._renderSWOTItem)}</ul>
+                      <span className="primary-link">
+                        <i className="fas fa-plus mr-2" />
+                        Add item
+                      </span>
                     </div>
                   </div>
                   <div className="col">
                     <div className="swot-header swot-header-t">T</div>
                     <div className="swot-body swot-body-t">
-                      <ul>
-                        {this.props.selected.swot.tItems.map(
-                          this._renderSWOTItem
-                        )}
-                      </ul>
+                      <ul>{this.state.tItems.map(this._renderSWOTItem)}</ul>
+                      <span className="primary-link">
+                        <i className="fas fa-plus mr-2" />
+                        Add item
+                      </span>
                     </div>
                   </div>
                 </div>
+              </div>
+            </div>
+            <div className="row mt-5">
+              <div className="col-3 text-color-primary" />
+              <div className="col-4 text-color-secondary">
+                <button type="submit" className="btn primary-btn">
+                  Update
+                </button>
               </div>
             </div>
           </form>
