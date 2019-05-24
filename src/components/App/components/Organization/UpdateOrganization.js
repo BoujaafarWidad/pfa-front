@@ -39,11 +39,15 @@ class UpdateOrganization extends Component {
         )
         .catch(e => console.log(e));
     } else {
-      this.setState({
-        selected: this.props.organizations.find(
-          ({ id }) => id === Number(this.props.match.params.idOrganization)
-        )
-      });
+      this.setState(
+        {
+          selected: this.props.organizations.find(
+            ({ id }) => id === Number(this.props.match.params.idOrganization)
+          )
+        },
+        () =>
+          (document.title = `Workspace - ${this.state.selected.nom} - Update`)
+      );
     }
   }
 

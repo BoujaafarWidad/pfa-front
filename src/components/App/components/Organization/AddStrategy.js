@@ -18,7 +18,6 @@ class AddStrategy extends Component {
   }
 
   componentWillMount() {
-    document.title = "Workspace";
     if (!this.props.dataFetched) {
       axios
         .get(`http://localhost:8080/organisations/owner/${this.props.user.id}`)
@@ -39,11 +38,17 @@ class AddStrategy extends Component {
         )
         .catch(e => console.log(e));
     } else {
-      this.setState({
-        selected: this.props.organizations.find(
-          ({ id }) => id === Number(this.props.match.params.idOrganization)
-        )
-      });
+      this.setState(
+        {
+          selected: this.props.organizations.find(
+            ({ id }) => id === Number(this.props.match.params.idOrganization)
+          )
+        },
+        () =>
+          (document.title = `Workspace - ${
+            this.state.selected.nom
+          } - New Strategy`)
+      );
     }
   }
 

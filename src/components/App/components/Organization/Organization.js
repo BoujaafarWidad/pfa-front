@@ -20,7 +20,6 @@ class Organization extends Component {
   }
 
   componentWillMount() {
-    document.title = "Workspace";
     if (!this.props.dataFetched) {
       axios
         .get(`http://localhost:8080/organisations/owner/${this.props.user.id}`)
@@ -38,12 +37,15 @@ class Organization extends Component {
 
   _fetchSelected = () => {
     if (this.props.match.params.idOrganization !== this.state.selectedId) {
-      this.setState({
-        selectedId: this.props.match.params.idOrganization,
-        selected: this.props.organizations.find(
-          ({ id }) => id === Number(this.props.match.params.idOrganization)
-        )
-      });
+      this.setState(
+        {
+          selectedId: this.props.match.params.idOrganization,
+          selected: this.props.organizations.find(
+            ({ id }) => id === Number(this.props.match.params.idOrganization)
+          )
+        },
+        () => (document.title = `Workspace - ${this.state.selected.nom}`)
+      );
     }
   };
 

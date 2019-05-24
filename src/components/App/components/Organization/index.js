@@ -11,7 +11,7 @@ import Spinner from "../Spinner";
 
 class Organizations extends Component {
   componentWillMount() {
-    document.title = "Workspace";
+    document.title = "Workspace - Organizations";
     if (!this.props.dataFetched) {
       axios
         .get(`http://localhost:8080/organisations/owner/${this.props.user.id}`)
