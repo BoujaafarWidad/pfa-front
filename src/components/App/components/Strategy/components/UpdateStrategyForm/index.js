@@ -31,6 +31,14 @@ class UpdateStrategyForm extends Component {
       wItemAdd: false,
       oItemAdd: false,
       tItemAdd: false,
+      sSelectedItem: -1,
+      sSelectedItemInput: "",
+      wSelectedItem: -1,
+      wSelectedItemInput: "",
+      oSelectedItem: -1,
+      oSelectedItemInput: "",
+      tSelectedItem: -1,
+      tSelectedItemInput: "",
       redirect: false,
       fetchingSuggestions: false,
       suggestedStrategists: []
@@ -124,7 +132,55 @@ class UpdateStrategyForm extends Component {
     </li>
   );
 
-  _renderSWOTItem = item => <li key={shortId.generate()}>{item}</li>;
+  _renderSWOTItem = (item, idx) => <li key={shortId.generate()}>{item}</li>;
+
+  _renderSItem = (item, idx) => {
+    if (this.state.sSelectedItem === idx) {
+      return (
+        <li key={shortId.generate()}>
+          <textarea
+            className="form-control mb-2"
+            rows="2"
+            placeholder="Item content..."
+            value={this.state.sSelectedItemInput}
+            onChange={event =>
+              this.setState({
+                sSelectedItemInput: event.target.value
+              })
+            }
+          />
+          <div className="row mt-3">
+            <div className="col text-center">
+              <span className="option-icon">
+                <i className="far fa-save" />
+              </span>
+            </div>
+            <div className="col text-center">
+              <span className="option-icon">
+                <i className="far fa-trash-alt" />
+              </span>
+            </div>
+            <div className="col text-center">
+              <span className="option-icon">
+                <i className="fas fa-times" />
+              </span>
+            </div>
+          </div>
+        </li>
+      );
+    } else {
+      return (
+        <li
+          key={shortId.generate()}
+          onClick={() => {
+            this.setState({ sSelectedItem: idx, sSelectedItemInput: item });
+          }}
+        >
+          {item}
+        </li>
+      );
+    }
+  };
 
   render() {
     return (
@@ -275,7 +331,7 @@ class UpdateStrategyForm extends Component {
                     <div className="col">
                       <div className="swot-header swot-header-s">S</div>
                       <div className="swot-body swot-body-s">
-                        <ul>{this.state.sItems.map(this._renderSWOTItem)}</ul>
+                        <ul>{this.state.sItems.map(this._renderSItem)}</ul>
                         {(this.state.sItemAdd && (
                           <div className="mb-3">
                             <textarea
