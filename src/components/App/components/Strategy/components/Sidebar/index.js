@@ -9,12 +9,19 @@ class Sidebar extends Component {
         <div className="col-3 pt-4 pr-0" id="sidebar">
           <div id="sidebar-top">
             <div className="ml-3 mb-3">
-              <button className="btn organization-logo">
-                {this.props.selected.nom.charAt(0).toUpperCase()}
-              </button>
-              <button className="btn squared-btn text-color-primary pl-2">
-                {this.props.selected.nom}
-              </button>
+              <Link
+                to={`/app/organizations/${
+                  this.props.idSelectedOrganization
+                }/strategies/${this.props.selected.id}`}
+                className="cursor-pointer"
+              >
+                <button className="btn organization-logo">
+                  {this.props.selected.nom.charAt(0).toUpperCase()}
+                </button>
+                <button className="btn squared-btn pl-2">
+                  {this.props.selected.nom}
+                </button>
+              </Link>
             </div>
             <hr />
             <ul className="list-group list-group-flush mt-3">
