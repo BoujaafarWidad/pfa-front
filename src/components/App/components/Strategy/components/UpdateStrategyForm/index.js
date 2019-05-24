@@ -4,7 +4,7 @@ import "./assets/css/index.css";
 class UpdateStrategyForm extends Component {
   render() {
     return (
-      <div className="col-9 pt-3" id="main">
+      <div className="col-9 pt-3 main-panel" id="main">
         <div className="pr-3 row" id="main-bar">
           <div className="col">
             <span className="text-color-secondary">

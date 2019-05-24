@@ -1,5 +1,9 @@
 #strategy {
   margin-top: -66px;
-  padding-top: 66px;
   height: 100%;
+}
+
+.main-panel {
+  position: relative;
+  left: 25%;
 }

@@ -4,7 +4,7 @@ import "./assets/css/index.css";
 class Overview extends Component {
   render() {
     return (
-      <div className="col-9 p-3" id="main">
+      <div className="col-9 p-3 main-panel" id="main">
         <div className="row pr-3" id="main-bar">
           <div className="col-6 text-left">
             <span className="text-color-secondary">

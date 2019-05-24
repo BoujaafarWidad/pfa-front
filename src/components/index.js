@@ -10,8 +10,7 @@ import UpdateOrganization from "./App/components/Organization/UpdateOrganization
 import AddStrategy from "./App/components/Organization/AddStrategy";
 import Organization from "./App/components/Organization/Organization";
 import UpdateStrategy from "./App/components/Strategy/UpdateStrategy";
-
-const NotFound = () => <h2>Not Found !</h2>;
+import NotFound from "./NotFound/index";
 
 class Routes extends Component {
   render() {
