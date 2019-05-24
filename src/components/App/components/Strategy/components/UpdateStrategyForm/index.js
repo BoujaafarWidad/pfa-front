@@ -3,6 +3,7 @@ import "./assets/css/index.css";
 import { Redirect } from "react-router-dom";
 import shortId from "shortid";
 import axios from "axios";
+import { connect } from "react-redux";
 
 class UpdateStrategyForm extends Component {
   constructor(props) {
@@ -18,6 +19,14 @@ class UpdateStrategyForm extends Component {
       wItems: this.props.selected.swot.wItems,
       oItems: this.props.selected.swot.oItems,
       tItems: this.props.selected.swot.tItems,
+      sItemInput: "",
+      wItemInput: "",
+      oItemInput: "",
+      tItemInput: "",
+      sItemAdd: false,
+      wItemAdd: false,
+      oItemAdd: false,
+      tItemAdd: false,
       redirect: false,
       fetchingSuggestions: false,
       suggestedStrategists: []
@@ -89,7 +98,7 @@ class UpdateStrategyForm extends Component {
             <span className="text-color-primary">Update strategy</span>
           </div>
         </div>
-        <div className="pt-5 pr-3 mt-2">
+        <div className="pt-5 pr-3 mt-2 mb-5 pb-5">
           <form
             id="strategy-update-form"
             autoComplete="off"
@@ -224,40 +233,244 @@ class UpdateStrategyForm extends Component {
                     <div className="swot-header swot-header-s">S</div>
                     <div className="swot-body swot-body-s">
                       <ul>{this.state.sItems.map(this._renderSWOTItem)}</ul>
-                      <span className="primary-link">
-                        <i className="fas fa-plus mr-2" />
-                        Add item
-                      </span>
+                      {(this.state.sItemAdd && (
+                        <div className="mb-3">
+                          <textarea
+                            className="form-control mb-2"
+                            rows="2"
+                            placeholder="Item content..."
+                            value={this.state.sItemInput}
+                            onChange={event =>
+                              this.setState({
+                                sItemInput: event.target.value
+                              })
+                            }
+                          />
+                          <button
+                            className="primary-btn mr-2"
+                            onClick={event => {
+                              event.preventDefault();
+                              this.setState(
+                                {
+                                  sItems: [
+                                    ...this.state.sItems,
+                                    this.state.sItemInput
+                                  ]
+                                },
+                                () =>
+                                  this.setState({
+                                    sItemInput: "",
+                                    sItemAdd: false
+                                  })
+                              );
+                            }}
+                          >
+                            Add
+                          </button>
+                          <button
+                            className="primary-btn"
+                            onClick={() =>
+                              this.setState({
+                                sItemInput: "",
+                                sItemAdd: false
+                              })
+                            }
+                          >
+                            Cancel
+                          </button>
+                        </div>
+                      )) || (
+                        <span
+                          className="primary-link"
+                          onClick={() => this.setState({ sItemAdd: true })}
+                        >
+                          <i className="fas fa-plus mr-2" />
+                          Add item
+                        </span>
+                      )}
                     </div>
                   </div>
                   <div className="col">
                     <div className="swot-header swot-header-w">W</div>
                     <div className="swot-body swot-body-w">
                       <ul>{this.state.wItems.map(this._renderSWOTItem)}</ul>
-                      <span className="primary-link">
-                        <i className="fas fa-plus mr-2" />
-                        Add item
-                      </span>
+                      {(this.state.wItemAdd && (
+                        <div className="mb-3">
+                          <textarea
+                            className="form-control mb-2"
+                            rows="2"
+                            placeholder="Item content..."
+                            value={this.state.wItemInput}
+                            onChange={event =>
+                              this.setState({
+                                wItemInput: event.target.value
+                              })
+                            }
+                          />
+                          <button
+                            className="primary-btn mr-2"
+                            onClick={event => {
+                              event.preventDefault();
+                              this.setState(
+                                {
+                                  wItems: [
+                                    ...this.state.wItems,
+                                    this.state.wItemInput
+                                  ]
+                                },
+                                () =>
+                                  this.setState({
+                                    wItemInput: "",
+                                    wItemAdd: false
+                                  })
+                              );
+                            }}
+                          >
+                            Add
+                          </button>
+                          <button
+                            className="primary-btn"
+                            onClick={() =>
+                              this.setState({
+                                wItemInput: "",
+                                wItemAdd: false
+                              })
+                            }
+                          >
+                            Cancel
+                          </button>
+                        </div>
+                      )) || (
+                        <span
+                          className="primary-link"
+                          onClick={() => this.setState({ wItemAdd: true })}
+                        >
+                          <i className="fas fa-plus mr-2" />
+                          Add item
+                        </span>
+                      )}
                     </div>
                   </div>
                   <div className="col">
                     <div className="swot-header swot-header-o">O</div>
                     <div className="swot-body swot-body-o">
                       <ul>{this.state.oItems.map(this._renderSWOTItem)}</ul>
-                      <span className="primary-link">
-                        <i className="fas fa-plus mr-2" />
-                        Add item
-                      </span>
+                      {(this.state.oItemAdd && (
+                        <div className="mb-3">
+                          <textarea
+                            className="form-control mb-2"
+                            rows="2"
+                            placeholder="Item content..."
+                            value={this.state.oItemInput}
+                            onChange={event =>
+                              this.setState({
+                                oItemInput: event.target.value
+                              })
+                            }
+                          />
+                          <button
+                            className="primary-btn mr-2"
+                            onClick={event => {
+                              event.preventDefault();
+                              this.setState(
+                                {
+                                  oItems: [
+                                    ...this.state.oItems,
+                                    this.state.oItemInput
+                                  ]
+                                },
+                                () =>
+                                  this.setState({
+                                    oItemInput: "",
+                                    oItemAdd: false
+                                  })
+                              );
+                            }}
+                          >
+                            Add
+                          </button>
+                          <button
+                            className="primary-btn"
+                            onClick={() =>
+                              this.setState({
+                                oItemInput: "",
+                                oItemAdd: false
+                              })
+                            }
+                          >
+                            Cancel
+                          </button>
+                        </div>
+                      )) || (
+                        <span
+                          className="primary-link"
+                          onClick={() => this.setState({ oItemAdd: true })}
+                        >
+                          <i className="fas fa-plus mr-2" />
+                          Add item
+                        </span>
+                      )}
                     </div>
                   </div>
                   <div className="col">
                     <div className="swot-header swot-header-t">T</div>
                     <div className="swot-body swot-body-t">
                       <ul>{this.state.tItems.map(this._renderSWOTItem)}</ul>
-                      <span className="primary-link">
-                        <i className="fas fa-plus mr-2" />
-                        Add item
-                      </span>
+                      {(this.state.tItemAdd && (
+                        <div className="mb-3">
+                          <textarea
+                            className="form-control mb-2"
+                            rows="2"
+                            placeholder="Item content..."
+                            value={this.state.tItemInput}
+                            onChange={event =>
+                              this.setState({
+                                tItemInput: event.target.value
+                              })
+                            }
+                          />
+                          <button
+                            className="primary-btn mr-2"
+                            onClick={event => {
+                              event.preventDefault();
+                              this.setState(
+                                {
+                                  tItems: [
+                                    ...this.state.tItems,
+                                    this.state.tItemInput
+                                  ]
+                                },
+                                () =>
+                                  this.setState({
+                                    tItemInput: "",
+                                    tItemAdd: false
+                                  })
+                              );
+                            }}
+                          >
+                            Add
+                          </button>
+                          <button
+                            className="primary-btn"
+                            onClick={() =>
+                              this.setState({
+                                tItemInput: "",
+                                tItemAdd: false
+                              })
+                            }
+                          >
+                            Cancel
+                          </button>
+                        </div>
+                      )) || (
+                        <span
+                          className="primary-link"
+                          onClick={() => this.setState({ tItemAdd: true })}
+                        >
+                          <i className="fas fa-plus mr-2" />
+                          Add item
+                        </span>
+                      )}
                     </div>
                   </div>
                 </div>
