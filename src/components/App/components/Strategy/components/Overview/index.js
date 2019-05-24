@@ -15,28 +15,53 @@ class Overview extends Component {
         </div>
         <div className="pt-5 pr-3 pl-3">
           <div className="row">
+            <div className="col-3 text-color-primary">Name</div>
+            <div className="col-9 text-color-secondary">Strategy</div>
+          </div>
+          <div className="row mt-5">
             <div className="col-3 text-color-primary">Strategist</div>
             <div className="col-9 text-color-secondary">Jane Doe</div>
           </div>
           <div className="row mt-5">
+            <div className="col-3 text-color-primary">Description</div>
+            <div className="col-9 text-color-secondary">Description</div>
+          </div>
+          <div className="row mt-5">
+            <div className="col-3 text-color-primary">Period</div>
+            <div className="col-9 text-color-secondary">From ... To ...</div>
+          </div>
+          <div className="row mt-5">
             <div className="col-3 text-color-primary">SWOT</div>
             <div id="swot" className="col-9 text-color-primary">
-              <div className="row">
+              <div className="row" id="swot-matrix">
                 <div className="col">
                   <div className="swot-header swot-header-s">S</div>
-                  <div className="swot-body swot-body-s">Lorem Ipsum</div>
+                  <div className="swot-body swot-body-s">
+                    <ul>
+                      <li>First item</li>
+                      <li>Second item</li>
+                    </ul>
+                  </div>
                 </div>
                 <div className="col">
                   <div className="swot-header swot-header-w">W</div>
-                  <div className="swot-body swot-body-w">Lorem Ipsum</div>
+                  <div className="swot-body swot-body-w" />
                 </div>
                 <div className="col">
                   <div className="swot-header swot-header-o">O</div>
-                  <div className="swot-body swot-body-o">Lorem Ipsum</div>
+                  <div className="swot-body swot-body-o">
+                    <ul>
+                      <li>First item</li>
+                    </ul>
+                  </div>
                 </div>
                 <div className="col">
                   <div className="swot-header swot-header-t">T</div>
-                  <div className="swot-body swot-body-t">Lorem Ipsum</div>
+                  <div className="swot-body swot-body-t">
+                    <ul>
+                      <li>First item</li>
+                    </ul>
+                  </div>
                 </div>
               </div>
             </div>

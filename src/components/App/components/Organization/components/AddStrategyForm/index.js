@@ -107,7 +107,17 @@ class AddStrategyForm extends Component {
           <div className="row pt-5 pr-3 mt-5 mb-5 pb-5">
             <div className="col-3" />
             <div className="col-6">
-              <form id="strategy-add-form" onSubmit={this._handleSubmit}>
+              <form
+                id="strategy-add-form"
+                autocomplete="off"
+                onSubmit={this._handleSubmit}
+              >
+                <input
+                  autocomplete="false"
+                  name="hidden"
+                  type="text"
+                  style={{ display: "none" }}
+                />
                 <div className="form-group">
                   <label htmlFor="nom" className="text-color-primary">
                     Name
