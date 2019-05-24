@@ -95,7 +95,7 @@ class AddStrategyForm extends Component {
     return (
       <Fragment>
         {this._handleRedirect()}
-        <div className="col-9 pt-3" id="main">
+        <div className="col-9 pt-3 main-panel" id="main">
           <div className="pr-3 row" id="main-bar">
             <div className="col">
               <span className="text-color-secondary">
@@ -104,7 +104,7 @@ class AddStrategyForm extends Component {
               <span className="text-color-primary">New strategy</span>
             </div>
           </div>
-          <div className="row pt-5 pr-3 mt-5">
+          <div className="row pt-5 pr-3 mt-5 mb-5 pb-5">
             <div className="col-3" />
             <div className="col-6">
               <form id="strategy-add-form" onSubmit={this._handleSubmit}>
@@ -188,7 +188,7 @@ class AddStrategyForm extends Component {
                   <textarea
                     className="form-control"
                     id="description"
-                    rows="3"
+                    rows="4"
                     placeholder="The marketing mix can be divided into four groups of variables commonly known as the four Ps."
                     value={this.state.desc}
                     onChange={event =>

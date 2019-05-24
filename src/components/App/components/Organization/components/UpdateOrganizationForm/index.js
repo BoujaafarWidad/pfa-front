@@ -49,7 +49,7 @@ class UpdateOrganizationForm extends Component {
     return (
       <Fragment>
         {this._handleRedirect()}
-        <div className="col-9 pt-3" id="main">
+        <div className="col-9 pt-3 main-panel" id="main">
           <div className="pr-3 row" id="main-bar">
             <div className="col">
               <span className="text-color-secondary">

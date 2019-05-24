@@ -8,8 +8,13 @@ body {
   overflow-x: hidden;
 }
 
+body {
+  padding-top: 66px;
+}
+
 #root {
   height: 100%;
+  margin-top: 66px;
 }
 
 .text-color-primary {

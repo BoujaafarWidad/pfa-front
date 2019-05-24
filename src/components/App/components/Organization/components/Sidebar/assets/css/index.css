@@ -1,5 +1,8 @@
 #sidebar {
   box-shadow: 1px 0px 2px #f0f0f0;
+  position: fixed;
+  bottom: 0;
+  padding-top: 86px !important;
 }
 
 #sidebar button,

@@ -12,7 +12,7 @@ class Home extends Component {
     return (
       <Fragment>
         <Header />
-        <div className=" view max-width">
+        <div className="view max-width">
           <div id="section1" className="container-fluid">
             <h1>Section 1</h1>
             <p>
