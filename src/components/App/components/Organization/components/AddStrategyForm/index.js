@@ -109,11 +109,11 @@ class AddStrategyForm extends Component {
             <div className="col-6">
               <form
                 id="strategy-add-form"
-                autocomplete="off"
+                autoComplete="off"
                 onSubmit={this._handleSubmit}
               >
                 <input
-                  autocomplete="false"
+                  autoComplete="false"
                   name="hidden"
                   type="text"
                   style={{ display: "none" }}

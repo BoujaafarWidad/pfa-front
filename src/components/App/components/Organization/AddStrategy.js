@@ -30,11 +30,18 @@ class AddStrategy extends Component {
         )
         .then(() => this.props.setDataFetched())
         .then(() =>
-          this.setState({
-            selected: this.props.organizations.find(
-              ({ id }) => id === Number(this.props.match.params.idOrganization)
-            )
-          })
+          this.setState(
+            {
+              selected: this.props.organizations.find(
+                ({ id }) =>
+                  id === Number(this.props.match.params.idOrganization)
+              )
+            },
+            () =>
+              (document.title = `Workspace - ${
+                this.state.selected.nom
+              } - New Strategy`)
+          )
         )
         .catch(e => console.log(e));
     } else {

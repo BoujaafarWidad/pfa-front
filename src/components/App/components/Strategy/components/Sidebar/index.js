@@ -9,14 +9,12 @@ class Sidebar extends Component {
         <div className="col-3 pt-4 pr-0" id="sidebar">
           <div id="sidebar-top">
             <div className="ml-3 mb-3">
-              <button className="btn organization-logo">S</button>
-              <button className="btn squared-btn text-color-primary pl-2">
-                Strategy
+              <button className="btn organization-logo">
+                {this.props.selected.nom.charAt(0).toUpperCase()}
               </button>
-              <button
-                id="add-strategy"
-                className="btn squared-btn text-color-primary pl-2"
-              />
+              <button className="btn squared-btn text-color-primary pl-2">
+                {this.props.selected.nom}
+              </button>
             </div>
             <hr />
             <ul className="list-group list-group-flush mt-3">
@@ -38,7 +36,9 @@ class Sidebar extends Component {
             <ul className="list-group list-group-flush">
               <li className="list-group-item">
                 <Link
-                  to="/app/organizations/1/strategies/1/update"
+                  to={`/app/organizations/${
+                    this.props.idSelectedOrganization
+                  }/strategies/${this.props.selected.id}/update`}
                   className="primary-link"
                 >
                   <i className="fas fa-cog mr-3" />
