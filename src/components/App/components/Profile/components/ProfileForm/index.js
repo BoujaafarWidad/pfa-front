@@ -28,7 +28,7 @@ class ProfileForm extends Component {
         <h5 className="card-title col-3">John Doe</h5>
         <div className="col-3 text-color-primary">Mail: John.Doe@gmail.com</div>
         <div className="col-3 text-color-primary">Tel: +21234566778</div>
-        <button type="submit" className=" btn primary-btn">
+        <button type="submit" className="edit_profile btn primary-btn">
           Edit profile
         </button>
       </div>
