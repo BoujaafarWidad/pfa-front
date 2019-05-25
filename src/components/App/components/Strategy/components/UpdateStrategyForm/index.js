@@ -137,10 +137,10 @@ class UpdateStrategyForm extends Component {
   _renderSItem = (item, idx) => {
     if (this.state.sSelectedItem === idx) {
       return (
-        <li key={shortId.generate()}>
+        <li key={idx}>
           <textarea
             className="form-control mb-2"
-            rows="2"
+            rows="3"
             placeholder="Item content..."
             value={this.state.sSelectedItemInput}
             onChange={event =>
@@ -151,17 +151,57 @@ class UpdateStrategyForm extends Component {
           />
           <div className="row mt-3">
             <div className="col text-center">
-              <span className="option-icon">
+              <span
+                className="option-icon"
+                onClick={() =>
+                  this.setState(
+                    {
+                      sItems: this.state.sItems.map((arrItem, arrIdx) =>
+                        arrIdx === idx ? this.state.sSelectedItemInput : arrItem
+                      )
+                    },
+                    () =>
+                      this.setState({
+                        sSelectedItemInput: "",
+                        sSelectedItem: -1
+                      })
+                  )
+                }
+              >
                 <i className="far fa-save" />
               </span>
             </div>
             <div className="col text-center">
-              <span className="option-icon">
+              <span
+                className="option-icon"
+                onClick={() =>
+                  this.setState(
+                    {
+                      sItems: this.state.sItems.filter(
+                        (arrItem, arrIdx) => arrIdx !== idx
+                      )
+                    },
+                    () =>
+                      this.setState({
+                        sSelectedItemInput: "",
+                        sSelectedItem: -1
+                      })
+                  )
+                }
+              >
                 <i className="far fa-trash-alt" />
               </span>
             </div>
             <div className="col text-center">
-              <span className="option-icon">
+              <span
+                className="option-icon"
+                onClick={() =>
+                  this.setState({
+                    sSelectedItemInput: "",
+                    sSelectedItem: -1
+                  })
+                }
+              >
                 <i className="fas fa-times" />
               </span>
             </div>
@@ -171,9 +211,273 @@ class UpdateStrategyForm extends Component {
     } else {
       return (
         <li
-          key={shortId.generate()}
+          key={idx}
           onClick={() => {
             this.setState({ sSelectedItem: idx, sSelectedItemInput: item });
+          }}
+        >
+          {item}
+        </li>
+      );
+    }
+  };
+
+  _renderWItem = (item, idx) => {
+    if (this.state.wSelectedItem === idx) {
+      return (
+        <li key={idx}>
+          <textarea
+            className="form-control mb-2"
+            rows="3"
+            placeholder="Item content..."
+            value={this.state.wSelectedItemInput}
+            onChange={event =>
+              this.setState({
+                wSelectedItemInput: event.target.value
+              })
+            }
+          />
+          <div className="row mt-3">
+            <div className="col text-center">
+              <span
+                className="option-icon"
+                onClick={() =>
+                  this.setState(
+                    {
+                      wItems: this.state.wItems.map((arrItem, arrIdx) =>
+                        arrIdx === idx ? this.state.wSelectedItemInput : arrItem
+                      )
+                    },
+                    () =>
+                      this.setState({
+                        wSelectedItemInput: "",
+                        wSelectedItem: -1
+                      })
+                  )
+                }
+              >
+                <i className="far fa-save" />
+              </span>
+            </div>
+            <div className="col text-center">
+              <span
+                className="option-icon"
+                onClick={() =>
+                  this.setState(
+                    {
+                      wItems: this.state.wItems.filter(
+                        (arrItem, arrIdx) => arrIdx !== idx
+                      )
+                    },
+                    () =>
+                      this.setState({
+                        wSelectedItemInput: "",
+                        wSelectedItem: -1
+                      })
+                  )
+                }
+              >
+                <i className="far fa-trash-alt" />
+              </span>
+            </div>
+            <div className="col text-center">
+              <span
+                className="option-icon"
+                onClick={() =>
+                  this.setState({
+                    wSelectedItemInput: "",
+                    wSelectedItem: -1
+                  })
+                }
+              >
+                <i className="fas fa-times" />
+              </span>
+            </div>
+          </div>
+        </li>
+      );
+    } else {
+      return (
+        <li
+          key={idx}
+          onClick={() => {
+            this.setState({ wSelectedItem: idx, wSelectedItemInput: item });
+          }}
+        >
+          {item}
+        </li>
+      );
+    }
+  };
+
+  _renderOItem = (item, idx) => {
+    if (this.state.oSelectedItem === idx) {
+      return (
+        <li key={idx}>
+          <textarea
+            className="form-control mb-2"
+            rows="3"
+            placeholder="Item content..."
+            value={this.state.oSelectedItemInput}
+            onChange={event =>
+              this.setState({
+                oSelectedItemInput: event.target.value
+              })
+            }
+          />
+          <div className="row mt-3">
+            <div className="col text-center">
+              <span
+                className="option-icon"
+                onClick={() =>
+                  this.setState(
+                    {
+                      oItems: this.state.oItems.map((arrItem, arrIdx) =>
+                        arrIdx === idx ? this.state.oSelectedItemInput : arrItem
+                      )
+                    },
+                    () =>
+                      this.setState({
+                        oSelectedItemInput: "",
+                        oSelectedItem: -1
+                      })
+                  )
+                }
+              >
+                <i className="far fa-save" />
+              </span>
+            </div>
+            <div className="col text-center">
+              <span
+                className="option-icon"
+                onClick={() =>
+                  this.setState(
+                    {
+                      oItems: this.state.oItems.filter(
+                        (arrItem, arrIdx) => arrIdx !== idx
+                      )
+                    },
+                    () =>
+                      this.setState({
+                        oSelectedItemInput: "",
+                        oSelectedItem: -1
+                      })
+                  )
+                }
+              >
+                <i className="far fa-trash-alt" />
+              </span>
+            </div>
+            <div className="col text-center">
+              <span
+                className="option-icon"
+                onClick={() =>
+                  this.setState({
+                    oSelectedItemInput: "",
+                    oSelectedItem: -1
+                  })
+                }
+              >
+                <i className="fas fa-times" />
+              </span>
+            </div>
+          </div>
+        </li>
+      );
+    } else {
+      return (
+        <li
+          key={idx}
+          onClick={() => {
+            this.setState({ oSelectedItem: idx, oSelectedItemInput: item });
+          }}
+        >
+          {item}
+        </li>
+      );
+    }
+  };
+
+  _renderTItem = (item, idx) => {
+    if (this.state.tSelectedItem === idx) {
+      return (
+        <li key={idx}>
+          <textarea
+            className="form-control mb-2"
+            rows="3"
+            placeholder="Item content..."
+            value={this.state.tSelectedItemInput}
+            onChange={event =>
+              this.setState({
+                tSelectedItemInput: event.target.value
+              })
+            }
+          />
+          <div className="row mt-3">
+            <div className="col text-center">
+              <span
+                className="option-icon"
+                onClick={() =>
+                  this.setState(
+                    {
+                      tItems: this.state.tItems.map((arrItem, arrIdx) =>
+                        arrIdx === idx ? this.state.tSelectedItemInput : arrItem
+                      )
+                    },
+                    () =>
+                      this.setState({
+                        tSelectedItemInput: "",
+                        tSelectedItem: -1
+                      })
+                  )
+                }
+              >
+                <i className="far fa-save" />
+              </span>
+            </div>
+            <div className="col text-center">
+              <span
+                className="option-icon"
+                onClick={() =>
+                  this.setState(
+                    {
+                      tItems: this.state.tItems.filter(
+                        (arrItem, arrIdx) => arrIdx !== idx
+                      )
+                    },
+                    () =>
+                      this.setState({
+                        tSelectedItemInput: "",
+                        tSelectedItem: -1
+                      })
+                  )
+                }
+              >
+                <i className="far fa-trash-alt" />
+              </span>
+            </div>
+            <div className="col text-center">
+              <span
+                className="option-icon"
+                onClick={() =>
+                  this.setState({
+                    tSelectedItemInput: "",
+                    tSelectedItem: -1
+                  })
+                }
+              >
+                <i className="fas fa-times" />
+              </span>
+            </div>
+          </div>
+        </li>
+      );
+    } else {
+      return (
+        <li
+          key={idx}
+          onClick={() => {
+            this.setState({ tSelectedItem: idx, tSelectedItemInput: item });
           }}
         >
           {item}
@@ -294,7 +598,9 @@ class UpdateStrategyForm extends Component {
                             className="form-control"
                             value={this.state.dateDebut}
                             onChange={event =>
-                              this.setState({ dateDebut: event.target.value })
+                              this.setState({
+                                dateDebut: event.target.value
+                              })
                             }
                           />
                         </td>
@@ -333,7 +639,7 @@ class UpdateStrategyForm extends Component {
                       <div className="swot-body swot-body-s">
                         <ul>{this.state.sItems.map(this._renderSItem)}</ul>
                         {(this.state.sItemAdd && (
-                          <div className="mb-3">
+                          <div className="mb-3 add-item-panel">
                             <textarea
                               className="form-control mb-2"
                               rows="2"
@@ -345,56 +651,64 @@ class UpdateStrategyForm extends Component {
                                 })
                               }
                             />
-                            <button
-                              className="primary-btn mr-2"
-                              onClick={event => {
-                                event.preventDefault();
-                                this.setState(
-                                  {
-                                    sItems: [
-                                      ...this.state.sItems,
-                                      this.state.sItemInput
-                                    ]
-                                  },
-                                  () =>
+                            <div className="row mt-3">
+                              <div className="col text-center">
+                                <span
+                                  className="option-icon cursor-pointer"
+                                  onClick={event => {
+                                    event.preventDefault();
+                                    this.setState(
+                                      {
+                                        sItems: [
+                                          ...this.state.sItems,
+                                          this.state.sItemInput
+                                        ]
+                                      },
+                                      () =>
+                                        this.setState({
+                                          sItemInput: "",
+                                          sItemAdd: false
+                                        })
+                                    );
+                                  }}
+                                >
+                                  <i className="far fa-save" />
+                                </span>
+                              </div>
+                              <div className="col text-center">
+                                <span
+                                  className="option-icon cursor-pointer"
+                                  onClick={() =>
                                     this.setState({
                                       sItemInput: "",
                                       sItemAdd: false
                                     })
-                                );
-                              }}
-                            >
-                              Add
-                            </button>
-                            <button
-                              className="primary-btn"
-                              onClick={() =>
-                                this.setState({
-                                  sItemInput: "",
-                                  sItemAdd: false
-                                })
-                              }
-                            >
-                              Cancel
-                            </button>
+                                  }
+                                >
+                                  <i className="fas fa-times" />
+                                </span>
+                              </div>
+                            </div>
                           </div>
                         )) || (
-                          <span
-                            className="primary-link"
-                            onClick={() => this.setState({ sItemAdd: true })}
-                          >
-                            <i className="fas fa-plus mr-2" />
-                            Add item
-                          </span>
+                          <div className="mt-2">
+                            <span
+                              className="primary-link"
+                              onClick={() => this.setState({ sItemAdd: true })}
+                            >
+                              <i className="fas fa-plus mr-2" />
+                              Add item
+                            </span>
+                          </div>
                         )}
                       </div>
                     </div>
                     <div className="col">
                       <div className="swot-header swot-header-w">W</div>
                       <div className="swot-body swot-body-w">
-                        <ul>{this.state.wItems.map(this._renderSWOTItem)}</ul>
+                        <ul>{this.state.wItems.map(this._renderWItem)}</ul>
                         {(this.state.wItemAdd && (
-                          <div className="mb-3">
+                          <div className="mb-3 add-item-panel">
                             <textarea
                               className="form-control mb-2"
                               rows="2"
@@ -406,56 +720,64 @@ class UpdateStrategyForm extends Component {
                                 })
                               }
                             />
-                            <button
-                              className="primary-btn mr-2"
-                              onClick={event => {
-                                event.preventDefault();
-                                this.setState(
-                                  {
-                                    wItems: [
-                                      ...this.state.wItems,
-                                      this.state.wItemInput
-                                    ]
-                                  },
-                                  () =>
+                            <div className="row mt-3">
+                              <div className="col text-center">
+                                <span
+                                  className="option-icon cursor-pointer"
+                                  onClick={event => {
+                                    event.preventDefault();
+                                    this.setState(
+                                      {
+                                        wItems: [
+                                          ...this.state.wItems,
+                                          this.state.wItemInput
+                                        ]
+                                      },
+                                      () =>
+                                        this.setState({
+                                          wItemInput: "",
+                                          wItemAdd: false
+                                        })
+                                    );
+                                  }}
+                                >
+                                  <i className="far fa-save" />
+                                </span>
+                              </div>
+                              <div className="col text-center">
+                                <span
+                                  className="option-icon cursor-pointer"
+                                  onClick={() =>
                                     this.setState({
                                       wItemInput: "",
                                       wItemAdd: false
                                     })
-                                );
-                              }}
-                            >
-                              Add
-                            </button>
-                            <button
-                              className="primary-btn"
-                              onClick={() =>
-                                this.setState({
-                                  wItemInput: "",
-                                  wItemAdd: false
-                                })
-                              }
-                            >
-                              Cancel
-                            </button>
+                                  }
+                                >
+                                  <i className="fas fa-times" />
+                                </span>
+                              </div>
+                            </div>
                           </div>
                         )) || (
-                          <span
-                            className="primary-link"
-                            onClick={() => this.setState({ wItemAdd: true })}
-                          >
-                            <i className="fas fa-plus mr-2" />
-                            Add item
-                          </span>
+                          <div className="mt-2">
+                            <span
+                              className="primary-link"
+                              onClick={() => this.setState({ wItemAdd: true })}
+                            >
+                              <i className="fas fa-plus mr-2" />
+                              Add item
+                            </span>
+                          </div>
                         )}
                       </div>
                     </div>
                     <div className="col">
                       <div className="swot-header swot-header-o">O</div>
                       <div className="swot-body swot-body-o">
-                        <ul>{this.state.oItems.map(this._renderSWOTItem)}</ul>
+                        <ul>{this.state.oItems.map(this._renderOItem)}</ul>
                         {(this.state.oItemAdd && (
-                          <div className="mb-3">
+                          <div className="mb-3 add-item-panel">
                             <textarea
                               className="form-control mb-2"
                               rows="2"
@@ -467,59 +789,67 @@ class UpdateStrategyForm extends Component {
                                 })
                               }
                             />
-                            <button
-                              className="primary-btn mr-2"
-                              onClick={event => {
-                                event.preventDefault();
-                                this.setState(
-                                  {
-                                    oItems: [
-                                      ...this.state.oItems,
-                                      this.state.oItemInput
-                                    ]
-                                  },
-                                  () =>
+                            <div className="row mt-3">
+                              <div className="col text-center">
+                                <span
+                                  className="option-icon cursor-pointer"
+                                  onClick={event => {
+                                    event.preventDefault();
+                                    this.setState(
+                                      {
+                                        oItems: [
+                                          ...this.state.oItems,
+                                          this.state.oItemInput
+                                        ]
+                                      },
+                                      () =>
+                                        this.setState({
+                                          oItemInput: "",
+                                          oItemAdd: false
+                                        })
+                                    );
+                                  }}
+                                >
+                                  <i className="far fa-save" />
+                                </span>
+                              </div>
+                              <div className="col text-center">
+                                <span
+                                  className="option-icon cursor-pointer"
+                                  onClick={() =>
                                     this.setState({
                                       oItemInput: "",
                                       oItemAdd: false
                                     })
-                                );
-                              }}
-                            >
-                              Add
-                            </button>
-                            <button
-                              className="primary-btn"
-                              onClick={() =>
-                                this.setState({
-                                  oItemInput: "",
-                                  oItemAdd: false
-                                })
-                              }
-                            >
-                              Cancel
-                            </button>
+                                  }
+                                >
+                                  <i className="fas fa-times" />
+                                </span>
+                              </div>
+                            </div>
                           </div>
                         )) || (
-                          <span
-                            className="primary-link"
-                            onClick={() => this.setState({ oItemAdd: true })}
-                          >
-                            <i className="fas fa-plus mr-2" />
-                            Add item
-                          </span>
+                          <div className="mt-2">
+                            <span
+                              className="primary-link"
+                              onClick={() => this.setState({ oItemAdd: true })}
+                            >
+                              <i className="fas fa-plus mr-2" />
+                              Add item
+                            </span>
+                          </div>
                         )}
                       </div>
                     </div>
                     <div className="col">
                       <div className="swot-header swot-header-t">T</div>
                       <div className="swot-body swot-body-t">
-                        <ul>{this.state.tItems.map(this._renderSWOTItem)}</ul>
+                        <ul>{this.state.tItems.map(this._renderTItem)}</ul>
                         {(this.state.tItemAdd && (
-                          <div className="mb-3">
+                          <div className="mb-3 add-item-panel">
                             <textarea
                               className="form-control mb-2"
-                              rows="2"
+                              rows="3"
                               placeholder="Item content..."
                               value={this.state.tItemInput}
                               onChange={event =>
@@ -528,47 +858,55 @@ class UpdateStrategyForm extends Component {
                                 })
                               }
                             />
-                            <button
-                              className="primary-btn mr-2"
-                              onClick={event => {
-                                event.preventDefault();
-                                this.setState(
-                                  {
-                                    tItems: [
-                                      ...this.state.tItems,
-                                      this.state.tItemInput
-                                    ]
-                                  },
-                                  () =>
+                            <div className="row mt-3">
+                              <div className="col text-center">
+                                <span
+                                  className="option-icon cursor-pointer"
+                                  onClick={event => {
+                                    event.preventDefault();
+                                    this.setState(
+                                      {
+                                        tItems: [
+                                          ...this.state.tItems,
+                                          this.state.tItemInput
+                                        ]
+                                      },
+                                      () =>
+                                        this.setState({
+                                          tItemInput: "",
+                                          tItemAdd: false
+                                        })
+                                    );
+                                  }}
+                                >
+                                  <i className="far fa-save" />
+                                </span>
+                              </div>
+                              <div className="col text-center">
+                                <span
+                                  className="option-icon cursor-pointer"
+                                  onClick={() =>
                                     this.setState({
                                       tItemInput: "",
                                       tItemAdd: false
                                     })
-                                );
-                              }}
-                            >
-                              Add
-                            </button>
-                            <button
-                              className="primary-btn"
-                              onClick={() =>
-                                this.setState({
-                                  tItemInput: "",
-                                  tItemAdd: false
-                                })
-                              }
-                            >
-                              Cancel
-                            </button>
+                                  }
+                                >
+                                  <i className="fas fa-times" />
+                                </span>
+                              </div>
+                            </div>
                           </div>
                         )) || (
-                          <span
-                            className="primary-link"
-                            onClick={() => this.setState({ tItemAdd: true })}
-                          >
-                            <i className="fas fa-plus mr-2" />
-                            Add item
-                          </span>
+                          <div className="mt-2">
+                            <span
+                              className="primary-link"
+                              onClick={() => this.setState({ tItemAdd: true })}
+                            >
+                              <i className="fas fa-plus mr-2" />
+                              Add item
+                            </span>
+                          </div>
                         )}
                       </div>
                     </div>

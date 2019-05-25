@@ -18,12 +18,12 @@ class UpdateStrategy extends Component {
       .get(
         `http://localhost:8080/strategies/${this.props.match.params.idStrategy}`
       )
-      .then(
-        res => {
-          this.setState({ selected: this._formatSWOT(res.data) });
-        },
-        () =>
-          (document.title = `Workspace - ${this.state.selected.nom} - Update`)
+      .then(res =>
+        this.setState(
+          { selected: this._formatSWOT(res.data) },
+          () =>
+            (document.title = `Workspace - ${this.state.selected.nom} - Update`)
+        )
       )
       .catch(e => console.log(e));
   }
