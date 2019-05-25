@@ -30,7 +30,7 @@ class Header extends Component {
                 <i className="fas fa-fingerprint mr-3" /> jane.doe@gmail.com
               </Link>
               <div className="dropdown-divider" />
-              <Link className="dropdown-item" to="./">
+              <Link className="dropdown-item" to="/app/profile">
                 <i className="far fa-user mr-3" /> Profile
               </Link>
               <Link className="dropdown-item" to="./">
