@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import { connect } from "react-redux";
+import shortId from "shortid";
 import "./assets/css/index.css";
 
 class ProfileForm extends Component {
@@ -22,12 +24,31 @@ class ProfileForm extends Component {
     this.setState({ index: 0, organizationsState: "", profileState: "active" });
   };
 
+  _renderOrganization = ({ nom, description }) => (
+    <li className="list-group-item" key={shortId.generate()}>
+      <div className="float-left">
+        <div>
+          <div className="float-right ml-2">
+            <h5 className="mb-0">{nom}</h5>
+            <div className="text-muted text-xs mt-2 ml-0">{description}</div>
+          </div>
+          <div className="clearfix" />
+        </div>
+      </div>
+      <div className="clearfix" />
+    </li>
+  );
+
   render() {
     const profile = (
       <div className="card-body">
-        <h5 className="card-title col-3">John Doe</h5>
-        <div className="col-3 text-color-primary">Mail: John.Doe@gmail.com</div>
-        <div className="col-3 text-color-primary">Tel: +21234566778</div>
+        <h5 className="card-title col-3">{this.props.user.nom}</h5>
+        <div className="col-3 text-color-primary">
+          Mail: {this.props.user.email}
+        </div>
+        <div className="col-3 text-color-primary">
+          Tel: {this.props.user.tel}
+        </div>
         <button type="submit" className="edit_profile btn primary-btn">
           Edit profile
         </button>
@@ -35,30 +56,7 @@ class ProfileForm extends Component {
     );
     const organizations = (
       <ul className="list-group-flush max-width p-3">
-        <li className="list-group-item">
-          <div className="float-left">
-            <div>
-              <div className="float-right ml-2">
-                <h5 className="mb-0">Organization</h5>
-                <div className="text-muted text-xs mt-2 ml-0">description</div>
-              </div>
-              <div className="clearfix" />
-            </div>
-          </div>
-          <div className="clearfix" />
-        </li>
-        <li className="list-group-item">
-          <div className="float-left">
-            <div>
-              <div className="float-right ml-2">
-                <h5 className="mb-0">Organization</h5>
-                <div className="text-muted text-xs mt-2 ml-0">description</div>
-              </div>
-              <div className="clearfix" />
-            </div>
-          </div>
-          <div className="clearfix" />
-        </li>
+        {this.props.organizations.map(this._renderOrganization)}
       </ul>
     );
 
@@ -99,4 +97,6 @@ class ProfileForm extends Component {
     );
   }
 }
-export default ProfileForm;
+const mapStateToProps = ({ user, organizations }) => ({ user, organizations });
+
+export default connect(mapStateToProps)(ProfileForm);
