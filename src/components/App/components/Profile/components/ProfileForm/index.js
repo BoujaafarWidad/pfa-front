@@ -24,13 +24,13 @@ class ProfileForm extends Component {
     this.setState({ index: 0, organizationsState: "", profileState: "active" });
   };
 
-  _renderOrganization = ({ nom, description }) => (
+  _renderOrganization = ({ nom, desc }) => (
     <li className="list-group-item" key={shortId.generate()}>
       <div className="float-left">
         <div>
           <div className="float-right ml-2">
             <h5 className="mb-0">{nom}</h5>
-            <div className="text-muted text-xs mt-2 ml-0">{description}</div>
+            <div className="text-muted text-xs mt-2 ml-0">{desc}</div>
           </div>
           <div className="clearfix" />
         </div>
