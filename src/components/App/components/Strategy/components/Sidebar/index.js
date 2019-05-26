@@ -6,7 +6,7 @@ class Sidebar extends Component {
   render() {
     return (
       <Fragment>
-        <div className="col-3 pt-4 pr-0" id="sidebar">
+        <div className="col-2 pt-4 pr-0" id="sidebar">
           <div id="sidebar-top">
             <div className="ml-3 mb-3">
               <Link
@@ -24,18 +24,29 @@ class Sidebar extends Component {
               </Link>
             </div>
             <hr />
-            <ul className="list-group list-group-flush mt-3">
-              <li className="list-group-item">
-                <i className="fas fa-eye mr-3" />
-                Overview
+            <ul className="list-group list-group-flush mt-4">
+              <li className="list-group-item active-organization">
+                <Link
+                  className="text-lg"
+                  to={`/app/organizations/${
+                    this.props.idSelectedOrganization
+                  }/strategies/${this.props.selected.id}`}
+                >
+                  <i className="fas fa-eye mr-3" />
+                  Overview
+                </Link>
               </li>
-              <li className="list-group-item">
-                <i className="fas fa-recycle mr-3" />
-                Process
+              <li className="list-group-item mt-2">
+                <Link className="text-lg">
+                  <i className="fas fa-recycle mr-3" />
+                  Process
+                </Link>
               </li>
-              <li className="list-group-item">
-                <i className="fas fa-bullseye mr-3" />
-                Goals
+              <li className="list-group-item mt-2">
+                <Link className="text-lg">
+                  <i className="fas fa-bullseye mr-3" />
+                  Goals
+                </Link>
               </li>
             </ul>
           </div>
@@ -46,10 +57,9 @@ class Sidebar extends Component {
                   to={`/app/organizations/${
                     this.props.idSelectedOrganization
                   }/strategies/${this.props.selected.id}/update`}
-                  className="primary-link"
                 >
-                  <i className="fas fa-cog mr-3" />
-                  Update strategy
+                  <i className="fas fa-cog mr-2" />
+                  Update Strategy
                 </Link>
               </li>
             </ul>

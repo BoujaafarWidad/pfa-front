@@ -1,12 +1,12 @@
 @media (min-width: 576px) {
   .card-columns {
-    column-count: 2;
+    column-count: 3;
   }
 }
 
 @media (min-width: 768px) {
   .card-columns {
-    column-count: 3;
+    column-count: 4;
   }
 }
 
@@ -21,7 +21,7 @@
 
 .strategy {
   border-radius: 0;
-  height: 230px;
+  height: 200px;
 }
 
 .strategy .primary-btn {
@@ -36,4 +36,25 @@
   height: 80px;
   max-height: 80px;
   text-overflow: ellipsis;
+}
+
+.card-title {
+  position: relative;
+}
+
+.date-strategy {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
+
+#filter-strategy-panel .input-group {
+  width: 300px;
+  position: absolute;
+  right: 0;
+  margin-right: 15px;
+}
+
+#filter-strategy-panel .input-group-text {
+  border-radius: 0;
 }

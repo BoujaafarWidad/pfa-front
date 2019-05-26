@@ -49,7 +49,7 @@ class UpdateOrganizationForm extends Component {
     return (
       <Fragment>
         {this._handleRedirect()}
-        <div className="col-9 pt-3 main-panel" id="main">
+        <div className="col-10 pt-3 main-panel" id="main">
           <div className="pr-3 row" id="main-bar">
             <div className="col">
               <span className="text-color-secondary">
@@ -59,8 +59,8 @@ class UpdateOrganizationForm extends Component {
             </div>
           </div>
           <div className="row pt-5 pr-3 mt-5">
-            <div className="col-3" />
-            <div className="col-6">
+            <div className="col-4" />
+            <div className="col-4">
               <form
                 id="organization-update-form"
                 onSubmit={this._handleFormSubmit}

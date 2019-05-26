@@ -44,7 +44,7 @@
   border-radius: 100%;
   width: 50px;
   height: 50px;
-  background-color: #707070;
+  background-color: rgba(66, 134, 244, 0.7);
   padding-left: 7px;
   padding-top: 7px;
 }
@@ -71,4 +71,8 @@
 #dropdown-menu .dropdown-item i {
   color: black;
   font-size: 18px;
+}
+
+#dropdown-menu .dropdown-item:hover {
+  background-color: rgba(66, 134, 244, 0.1);
 }

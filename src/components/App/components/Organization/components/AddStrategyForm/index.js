@@ -95,7 +95,7 @@ class AddStrategyForm extends Component {
     return (
       <Fragment>
         {this._handleRedirect()}
-        <div className="col-9 pt-3 main-panel" id="main">
+        <div className="col-10 pt-3 main-panel" id="main">
           <div className="pr-3 row" id="main-bar">
             <div className="col">
               <span className="text-color-secondary">
@@ -105,8 +105,8 @@ class AddStrategyForm extends Component {
             </div>
           </div>
           <div className="row pt-5 pr-3 mt-5 mb-5 pb-5">
-            <div className="col-3" />
-            <div className="col-6">
+            <div className="col-4" />
+            <div className="col-4">
               <form
                 id="strategy-add-form"
                 autoComplete="off"

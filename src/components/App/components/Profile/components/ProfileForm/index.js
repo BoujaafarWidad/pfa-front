@@ -66,7 +66,7 @@ class ProfileForm extends Component {
           <img
             className="card-img-top "
             src="https://www.htmlcsscolor.com/preview/gallery/6A6C6E.png"
-            alt="Card image cap"
+            alt="Card cap"
           />
           <div className="card-header">
             <ul className="nav nav-tabs card-header-tabs">

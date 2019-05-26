@@ -5,11 +5,11 @@ import { connect } from "react-redux";
 import shortId from "shortid";
 
 class Sidebar extends Component {
-  _renderOrganization = ({ id, nom }) => (
+  _renderOrganization = ({ id, nom }, idx) => (
     <li
       className={`list-group-item ${this.props.selected &&
         this.props.selected.id === id &&
-        "active-organization"}`}
+        "active-organization"} ${idx > 0 ? "mt-2" : ""}`}
       key={shortId.generate()}
     >
       <Link to={`/app/organizations/${id}`} className="cursor-pointer">
@@ -24,23 +24,24 @@ class Sidebar extends Component {
   render() {
     return (
       <Fragment>
-        <div className="col-3 pt-4" id="sidebar">
+        <div className="col-2 pt-4" id="sidebar">
           <div id="sidebar-top">
-            <h4 className="text-color-primary mb-4 pl-3">
-              <Link className="primary-link" to="/app/organizations">
-                My Organizations
-              </Link>
-            </h4>
-            <ul className="list-group list-group-flush">
+            <Link
+              className="primary-link text-color-primary pl-3 text-lg"
+              to="/app/organizations"
+            >
+              My Organizations
+            </Link>
+            <ul className="list-group list-group-flush mt-4">
               {this.props.organizations.map(this._renderOrganization)}
             </ul>
           </div>
           <div id="sidebar-bottom">
             <ul className="list-group list-group-flush">
               <li className="list-group-item">
-                <Link to="/app/organizations/new" className="primary-link">
+                <Link to="/app/organizations/new">
                   <i
-                    className="fas fa-plus mr-3"
+                    className="fas fa-plus mr-2"
                     data-toggle="modal"
                     data-target="#new-organization"
                   />
@@ -51,9 +52,8 @@ class Sidebar extends Component {
                 <li className="list-group-item">
                   <Link
                     to={`/app/organizations/${this.props.selected.id}/update`}
-                    className="primary-link"
                   >
-                    <i className="fas fa-cog mr-3" />
+                    <i className="fas fa-cog mr-2" />
                     Update Organization
                   </Link>
                 </li>
