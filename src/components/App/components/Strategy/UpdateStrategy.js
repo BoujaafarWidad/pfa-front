@@ -57,6 +57,7 @@ class UpdateStrategy extends Component {
             <Sidebar
               selected={this.state.selected}
               idSelectedOrganization={this.props.match.params.idOrganization}
+              active="overview"
             />
             <UpdateStrategyForm
               selected={this.state.selected}

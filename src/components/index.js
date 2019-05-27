@@ -12,6 +12,8 @@ import Organization from "./App/components/Organization/Organization";
 import UpdateStrategy from "./App/components/Strategy/UpdateStrategy";
 import NotFound from "./NotFound/index";
 import Profile from "./App/components/Profile";
+import Process from "./App/components/Strategy/Process";
+import ProcessAdd from "./App/components/Strategy/ProcessAdd";
 
 class Routes extends Component {
   render() {
@@ -46,6 +48,16 @@ class Routes extends Component {
           <Route
             path="/app/organizations/:idOrganization/strategies/:idStrategy/update"
             component={UpdateStrategy}
+            exact
+          />
+          <Route
+            path="/app/organizations/:idOrganization/strategies/:idStrategy/process"
+            component={Process}
+            exact
+          />
+          <Route
+            path="/app/organizations/:idOrganization/strategies/:idStrategy/process/add"
+            component={ProcessAdd}
             exact
           />
           <Route

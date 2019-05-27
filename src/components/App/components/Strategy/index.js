@@ -56,6 +56,7 @@ class Strategy extends Component {
             <Sidebar
               selected={this.state.selected}
               idSelectedOrganization={this.props.match.params.idOrganization}
+              active="overview"
             />
             <Overview
               selected={this.state.selected}

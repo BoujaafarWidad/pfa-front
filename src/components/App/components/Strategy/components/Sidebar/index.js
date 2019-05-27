@@ -25,7 +25,11 @@ class Sidebar extends Component {
             </div>
             <hr />
             <ul className="list-group list-group-flush mt-4">
-              <li className="list-group-item active-organization">
+              <li
+                className={`list-group-item ${
+                  this.props.active === "overview" ? "active-organization" : ""
+                }`}
+              >
                 <Link
                   className="text-lg"
                   to={`/app/organizations/${
@@ -36,13 +40,26 @@ class Sidebar extends Component {
                   Overview
                 </Link>
               </li>
-              <li className="list-group-item mt-2">
-                <Link className="text-lg">
+              <li
+                className={`list-group-item mt-2 ${
+                  this.props.active === "process" ? "active-organization" : ""
+                }`}
+              >
+                <Link
+                  className="text-lg"
+                  to={`/app/organizations/${
+                    this.props.idSelectedOrganization
+                  }/strategies/${this.props.selected.id}/process`}
+                >
                   <i className="fas fa-recycle mr-3" />
                   Process
                 </Link>
               </li>
-              <li className="list-group-item mt-2">
+              <li
+                className={`list-group-item mt-2 ${
+                  this.props.active === "goals" ? "active-organization" : ""
+                }`}
+              >
                 <Link className="text-lg">
                   <i className="fas fa-bullseye mr-3" />
                   Goals
