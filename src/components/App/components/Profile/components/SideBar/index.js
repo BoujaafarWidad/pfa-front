@@ -38,7 +38,7 @@ class Sidebar extends Component {
           <div id="sidebar-bottom">
             <ul className="list-group list-group-flush">
               <li className="list-group-item">
-                <Link to="/app/profile/update">
+                <Link to={`/app/profile/${this.props.user.id}/update`}>
                   <i className="fas fa-cog mr-2" />
                   Update Profile
                 </Link>

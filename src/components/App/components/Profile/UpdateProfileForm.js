@@ -1,5 +1,8 @@
 import React, { Component, Fragment } from "react";
 import { connect } from "react-redux";
+import { updateUser } from "../../../../redux/actions/userActions";
+import axios from "axios";
+import { Redirect } from "react-router-dom";
 
 class UpdateProfileForm extends Component {
   constructor(props) {
@@ -23,10 +26,26 @@ class UpdateProfileForm extends Component {
       tel: this.state.tel,
       birthday: this.state.birthday
     };
+    axios
+      .put(`http://localhost:8080/utilisateurs/${this.state.id}`, profile)
+      .then(res => {
+        this.props.updateUser(res.data);
+        return res.data.id;
+      })
+      .then(id => this.setState({ id, redirect: true }))
+      .catch(e => console.log(e));
   };
+
+  _handleRedirect = () => {
+    if (this.state.redirect) {
+      return <Redirect to={`/app/profile/${this.state.id}`} />;
+    }
+  };
+
   render() {
     return (
       <Fragment>
+        {this._handleRedirect()}
         <div className="col-10 pt-0 main-panel" id="main">
           <div className="row pt-5 pr-3 mt-5">
             <div className="col-4" />
@@ -105,4 +124,7 @@ class UpdateProfileForm extends Component {
 }
 const mapStateToProps = ({ user }) => ({ user });
 
-export default connect(mapStateToProps)(UpdateProfileForm);
+export default connect(
+  mapStateToProps,
+  { updateUser }
+)(UpdateProfileForm);

@@ -25,8 +25,12 @@ class Routes extends Component {
           <Route path="/sign-in" component={SignIn} exact />
           <Route path="/sign-up" component={SignUp} exact />
           <Route path="/app/organizations" component={App} exact />
-          <Route path="/app/profile" component={Profile} exact />
-          <Route path="/app/profile/update" component={UpdateProfile} exact />
+          <Route path="/app/profile/:idProfile" component={Profile} exact />
+          <Route
+            path="/app/profile/:idProfile/update"
+            component={UpdateProfile}
+            exact
+          />
           <Route
             path="/app/organizations/new"
             component={AddOrganization}
