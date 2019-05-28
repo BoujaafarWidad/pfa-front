@@ -1,6 +1,9 @@
 #strategy,
 #strategy-process,
-#process-show {
+#process-show,
+#strategy-goals,
+#strategy-goal,
+#goal-show {
   margin-top: -66px;
   height: 100%;
 }

@@ -28,6 +28,7 @@ class AddOrganizationForm extends Component {
       tel: this.state.tel,
       owner: this.state.owner
     };
+    console.log(organization);
     axios
       .post("http://localhost:8080/organisations", organization)
       .then(res => {

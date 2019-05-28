@@ -20,6 +20,10 @@ import ProcessUpdate from "./App/components/Strategy/ProcessUpdate";
 import Programs from "./App/components/Strategy/Programs";
 import ProgramAdd from "./App/components/Strategy/ProgramAdd";
 import ProgramShow from "./App/components/Strategy/ProgramShow";
+import Goals from "./App/components/Strategy/Goals";
+import GoalAdd from "./App/components/Strategy/GoalAdd";
+import GoalShow from "./App/components/Strategy/GoalShow";
+import GoalUpdate from "./App/components/Strategy/GoalUpdate";
 
 class Routes extends Component {
   render() {
@@ -73,18 +77,38 @@ class Routes extends Component {
             exact
           />
           <Route
-            path="/app/organizations/:idOrganization/strategies/:idStrategy/programs/:idProgram"
-            component={ProgramShow}
-            exact
-          />
-          <Route
             path="/app/organizations/:idOrganization/strategies/:idStrategy/programs/new"
             component={ProgramAdd}
             exact
           />
           <Route
+            path="/app/organizations/:idOrganization/strategies/:idStrategy/programs/:idProgram"
+            component={ProgramShow}
+            exact
+          />
+          <Route
             path="/app/organizations/:idOrganization/strategies/:idStrategy/process/:idProcess"
             component={ProcessShow}
+            exact
+          />
+          <Route
+            path="/app/organizations/:idOrganization/strategies/:idStrategy/goals/new"
+            component={GoalAdd}
+            exact
+          />
+          <Route
+            path="/app/organizations/:idOrganization/strategies/:idStrategy/goals/:idGoal/update"
+            component={GoalUpdate}
+            exact
+          />
+          <Route
+            path="/app/organizations/:idOrganization/strategies/:idStrategy/goals/:idGoal"
+            component={GoalShow}
+            exact
+          />
+          <Route
+            path="/app/organizations/:idOrganization/strategies/:idStrategy/goals"
+            component={Goals}
             exact
           />
           <Route

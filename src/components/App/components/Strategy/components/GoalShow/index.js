@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import Spinner from "../../../Spinner/index";
 import axios from "axios";
 
-class ProcessShow extends Component {
+class GoalShow extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -14,25 +14,23 @@ class ProcessShow extends Component {
 
   componentWillMount() {
     axios
-      .get(
-        `http://localhost:8080/programs/process/${
-          this.props.selectedProcess.id
-        }`
-      )
+      .get(`http://localhost:8080/programs/goals/${this.props.selectedGoal.id}`)
       .then(res => this.setState({ programs: res.data }))
       .catch(e => console.log(e));
   }
 
-  _renderProgram = ({ objectif, id, nom }) => (
+  _renderProgram = ({ processus, id, nom }) => (
     <tr key={id}>
       <td className="text-color-secondary">
         <Link
           className="secondary-link"
           to={`/app/organizations/${
             this.props.idSelectedOrganization
-          }/strategies/${this.props.selectedStrategy.id}/goals/${objectif.id}`}
+          }/strategies/${this.props.selectedStrategy.id}/process/${
+            processus.id
+          }`}
         >
-          {objectif.nom}
+          {processus.nom}
         </Link>
       </td>
       <td className="text-color-secondary">
@@ -55,8 +53,8 @@ class ProcessShow extends Component {
           <div className="row pr-3" id="main-bar">
             <div className="col-6 text-left">
               <span className="text-color-secondary">
-                Strategy / {this.props.selectedStrategy.nom} / Process /{" "}
-                {this.props.selectedProcess.nom} /{" "}
+                Strategy / {this.props.selectedStrategy.nom} / Goals /{" "}
+                {this.props.selectedGoal.nom} /{" "}
               </span>
               <span className="text-color-primary">Overview</span>
             </div>
@@ -65,12 +63,12 @@ class ProcessShow extends Component {
                 className="btn primary-btn"
                 to={`/app/organizations/${
                   this.props.idSelectedOrganization
-                }/strategies/${this.props.selectedStrategy.id}/process/${
-                  this.props.selectedProcess.id
+                }/strategies/${this.props.selectedStrategy.id}/goals/${
+                  this.props.selectedGoal.id
                 }/update`}
               >
                 <i className="fas fa-edit mr-3" />
-                Update process
+                Update goal
               </Link>
             </div>
           </div>
@@ -78,13 +76,19 @@ class ProcessShow extends Component {
             <div className="row">
               <div className="col-3 text-color-primary">Name</div>
               <div className="col-9 text-color-secondary">
-                {this.props.selectedProcess.nom}
+                {this.props.selectedGoal.nom}
+              </div>
+            </div>
+            <div className="row mt-5">
+              <div className="col-3 text-color-primary">Indicator</div>
+              <div className="col-9 text-color-secondary">
+                {this.props.selectedGoal.indicateur} %
               </div>
             </div>
             <div className="row mt-5">
               <div className="col-3 text-color-primary">Description</div>
               <div className="col-9 text-color-secondary">
-                {this.props.selectedProcess.desc}
+                {this.props.selectedGoal.desc}
               </div>
             </div>
             <div className="row mt-5">
@@ -96,7 +100,7 @@ class ProcessShow extends Component {
                       <thead>
                         <tr>
                           <th scope="col" className="text-color-primary">
-                            Goal
+                            Process
                           </th>
                           <th scope="col" className="text-color-primary">
                             Program
@@ -110,7 +114,7 @@ class ProcessShow extends Component {
                   </div>
                 )) || (
                   <span className="text-color-secondary">
-                    No program exists for this process. You can add them.
+                    No program exists for this goal. You can add them.
                   </span>
                 )}
               </div>
@@ -122,4 +126,4 @@ class ProcessShow extends Component {
   }
 }
 
-export default ProcessShow;
+export default GoalShow;

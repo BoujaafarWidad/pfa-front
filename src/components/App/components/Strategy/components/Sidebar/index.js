@@ -60,7 +60,12 @@ class Sidebar extends Component {
                   this.props.active === "goals" ? "active-organization" : ""
                 }`}
               >
-                <Link className="text-lg">
+                <Link
+                  className="text-lg"
+                  to={`/app/organizations/${
+                    this.props.idSelectedOrganization
+                  }/strategies/${this.props.selected.id}/goals`}
+                >
                   <i className="fas fa-bullseye mr-3" />
                   Goals
                 </Link>

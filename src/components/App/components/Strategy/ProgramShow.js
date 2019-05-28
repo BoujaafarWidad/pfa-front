@@ -49,7 +49,7 @@ class ProgramShow extends Component {
             <Sidebar
               selected={this.state.selectedStrategy}
               idSelectedOrganization={this.props.match.params.idOrganization}
-              active="process"
+              active="programs"
             />
             <SingleProgramShow
               selectedStrategy={this.state.selectedStrategy}

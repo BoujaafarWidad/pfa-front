@@ -1,16 +1,16 @@
 import React, { Component, Fragment } from "react";
 import Header from "../Header/index";
 import Spinner from "../Spinner";
+import SingleGoalShow from "./components/GoalShow";
 import axios from "axios";
 import Sidebar from "./components/Sidebar";
-import ProcessUpdateForm from "./components/ProcessUpdateForm/index";
 
-class ProcessUpdate extends Component {
+class GoalShow extends Component {
   constructor(props) {
     super(props);
     this.state = {
       selectedStrategy: null,
-      selectedProcess: null
+      selectedGoal: null
     };
   }
 
@@ -23,15 +23,11 @@ class ProcessUpdate extends Component {
         this.setState({ selectedStrategy: res.data }, () =>
           axios
             .get(
-              `http://localhost:8080/process/${
-                this.props.match.params.idProcess
-              }`
+              `http://localhost:8080/goals/${this.props.match.params.idGoal}`
             )
             .then(res =>
-              this.setState({ selectedProcess: res.data }, () => {
-                document.title = `Workspace - ${
-                  this.state.selectedProcess.nom
-                } - Update`;
+              this.setState({ selectedGoal: res.data }, () => {
+                document.title = `Workspace - ${this.state.selectedGoal.nom}`;
               })
             )
             .catch(e => console.log(e))
@@ -44,17 +40,17 @@ class ProcessUpdate extends Component {
     return (
       <Fragment>
         <Header />
-        {(this.state.selectedStrategy && this.state.selectedProcess && (
-          <div className="row" id="strategy-process">
+        {(this.state.selectedStrategy && this.state.selectedGoal && (
+          <div className="row" id="goal-show">
             <Sidebar
               selected={this.state.selectedStrategy}
               idSelectedOrganization={this.props.match.params.idOrganization}
-              active="process"
+              active="goals"
             />
-            <ProcessUpdateForm
+            <SingleGoalShow
               selectedStrategy={this.state.selectedStrategy}
               idSelectedOrganization={this.props.match.params.idOrganization}
-              selectedProcess={this.state.selectedProcess}
+              selectedGoal={this.state.selectedGoal}
             />
           </div>
         )) || <Spinner />}
@@ -63,4 +59,4 @@ class ProcessUpdate extends Component {
   }
 }
 
-export default ProcessUpdate;
+export default GoalShow;
