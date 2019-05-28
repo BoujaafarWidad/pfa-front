@@ -83,6 +83,14 @@ body {
   color: #707070 !important;
 }
 
+.secondary-link {
+  text-decoration: none !important;
+  cursor: pointer !important;
+  color: #adadad !important;
+  text-decoration: underline !important;
+}
+
+.secondary-link:hover,
 .primary-link:hover {
   text-decoration: underline !important;
 }

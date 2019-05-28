@@ -19,6 +19,7 @@ import ProcessShow from "./App/components/Strategy/ProcessShow";
 import ProcessUpdate from "./App/components/Strategy/ProcessUpdate";
 import Programs from "./App/components/Strategy/Programs";
 import ProgramAdd from "./App/components/Strategy/ProgramAdd";
+import ProgramShow from "./App/components/Strategy/ProgramShow";
 
 class Routes extends Component {
   render() {
@@ -69,6 +70,11 @@ class Routes extends Component {
           <Route
             path="/app/organizations/:idOrganization/strategies/:idStrategy/programs"
             component={Programs}
+            exact
+          />
+          <Route
+            path="/app/organizations/:idOrganization/strategies/:idStrategy/programs/:idProgram"
+            component={ProgramShow}
             exact
           />
           <Route

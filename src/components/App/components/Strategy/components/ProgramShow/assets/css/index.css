@@ -1,0 +1,13 @@
+#program-process-table thead th {
+  border-top: none !important;
+  background-color: rgba(66, 134, 244, 0.1) !important;
+  border-bottom: 3px solid rgb(66, 134, 244) !important;
+}
+
+#program-process-table tbody tr:first-child td {
+  border-top: none !important;
+}
+
+#program-process-table thead th {
+  font-weight: normal !important;
+}

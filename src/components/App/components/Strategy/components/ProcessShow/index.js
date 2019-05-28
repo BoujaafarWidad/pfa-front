@@ -26,7 +26,16 @@ class ProcessShow extends Component {
   _renderProgram = ({ objectif, id, nom }) => (
     <tr>
       <td className="text-color-secondary">{objectif.nom}</td>
-      <td className="text-color-secondary">{nom}</td>
+      <td className="text-color-secondary">
+        <Link
+          className="secondary-link"
+          to={`/app/organizations/${
+            this.props.idSelectedOrganization
+          }/strategies/${this.props.selectedStrategy.id}/programs/${id}`}
+        >
+          {nom}
+        </Link>
+      </td>
     </tr>
   );
 
@@ -51,7 +60,7 @@ class ProcessShow extends Component {
                   this.props.selectedProcess.id
                 }/update`}
               >
-                <i className="fas fa-plus mr-3" />
+                <i className="fas fa-edit mr-3" />
                 Update process
               </Link>
             </div>
