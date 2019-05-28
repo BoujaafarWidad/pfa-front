@@ -28,18 +28,22 @@ class ProfileForm extends Component {
 
                       <div className="contact-info pt-4">
                         <h5 className="info-color  mb-1">Your Informations</h5>
-                        <p className="text-dark font-weight-medium pt-4 mb-2">
+                        <p className="text-color-primary pt-4 mb-2">
                           Email address
                         </p>
-                        <p>{this.props.user.email}</p>
-                        <p className="text-dark font-weight-medium pt-4 mb-2">
+                        <p className="text-color-secondary">
+                          {this.props.user.email}
+                        </p>
+                        <p className="text-color-primary pt-4 mb-2">
                           Phone Number
                         </p>
-                        <p>{this.props.user.tel}</p>
-                        <p className="text-dark font-weight-medium pt-4 mb-2">
-                          Birthday
+                        <p className="text-color-secondary">
+                          {this.props.user.tel}
                         </p>
-                        <p>{this.props.user.birthday}</p>
+                        <p className="text-color-primary pt-4 mb-2">Birthday</p>
+                        <p className="text-color-secondary">
+                          {this.props.user.birthday}
+                        </p>
                       </div>
                     </div>
                   </div>

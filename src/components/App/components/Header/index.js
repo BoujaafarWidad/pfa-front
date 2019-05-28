@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import { connect } from "react-redux";
 import "./assets/css/index.css";
 
 class Header extends Component {
@@ -30,7 +31,10 @@ class Header extends Component {
                 <i className="fas fa-fingerprint mr-3" /> jane.doe@gmail.com
               </Link>
               <div className="dropdown-divider" />
-              <Link className="dropdown-item" to="/app/profile">
+              <Link
+                className="dropdown-item"
+                to={`/app/profile/${this.props.user.id}`}
+              >
                 <i className="far fa-user mr-3" /> Profile
               </Link>
               <Link className="dropdown-item" to="./">
@@ -51,4 +55,6 @@ class Header extends Component {
   }
 }
 
-export default Header;
+const mapStateToProps = ({ user }) => ({ user });
+
+export default connect(mapStateToProps)(Header);

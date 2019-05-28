@@ -16,7 +16,10 @@ class Sidebar extends Component {
             <hr />
             <ul className="list-group list-group-flush mt-4">
               <li className="list-group-item active-organization">
-                <Link className="text-lg" to="./">
+                <Link
+                  className="text-lg"
+                  to={`/app/profile/${this.props.user.id}`}
+                >
                   <i className="far fa-user mr-3" />
                   Profile
                 </Link>
@@ -38,7 +41,7 @@ class Sidebar extends Component {
           <div id="sidebar-bottom">
             <ul className="list-group list-group-flush">
               <li className="list-group-item">
-                <Link to="/app/profile/update">
+                <Link to={`/app/profile/${this.props.user.id}/update`}>
                   <i className="fas fa-cog mr-2" />
                   Update Profile
                 </Link>
