@@ -14,6 +14,10 @@ import NotFound from "./NotFound/index";
 import Profile from "./App/components/Profile";
 import Process from "./App/components/Strategy/Process";
 import ProcessAdd from "./App/components/Strategy/ProcessAdd";
+import ProcessShow from "./App/components/Strategy/ProcessShow";
+import ProcessUpdate from "./App/components/Strategy/ProcessUpdate";
+import Programs from "./App/components/Strategy/Programs";
+import ProgramAdd from "./App/components/Strategy/ProgramAdd";
 
 class Routes extends Component {
   render() {
@@ -41,11 +45,6 @@ class Routes extends Component {
             exact
           />
           <Route
-            path="/app/organizations/:idOrganization/strategies/:idStrategy"
-            component={Strategy}
-            exact
-          />
-          <Route
             path="/app/organizations/:idOrganization/strategies/:idStrategy/update"
             component={UpdateStrategy}
             exact
@@ -56,8 +55,33 @@ class Routes extends Component {
             exact
           />
           <Route
-            path="/app/organizations/:idOrganization/strategies/:idStrategy/process/add"
+            path="/app/organizations/:idOrganization/strategies/:idStrategy/process/new"
             component={ProcessAdd}
+            exact
+          />
+          <Route
+            path="/app/organizations/:idOrganization/strategies/:idStrategy/process/:idProcess/update"
+            component={ProcessUpdate}
+            exact
+          />
+          <Route
+            path="/app/organizations/:idOrganization/strategies/:idStrategy/programs"
+            component={Programs}
+            exact
+          />
+          <Route
+            path="/app/organizations/:idOrganization/strategies/:idStrategy/programs/new"
+            component={ProgramAdd}
+            exact
+          />
+          <Route
+            path="/app/organizations/:idOrganization/strategies/:idStrategy/process/:idProcess"
+            component={ProcessShow}
+            exact
+          />
+          <Route
+            path="/app/organizations/:idOrganization/strategies/:idStrategy"
+            component={Strategy}
             exact
           />
           <Route

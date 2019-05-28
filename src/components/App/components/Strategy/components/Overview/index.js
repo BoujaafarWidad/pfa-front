@@ -11,7 +11,7 @@ class Overview extends Component {
         <div className="row pr-3" id="main-bar">
           <div className="col-6 text-left">
             <span className="text-color-secondary">
-              Organization / {this.props.selected.nom} /{" "}
+              Strategy / {this.props.selected.nom} /{" "}
             </span>
             <span className="text-color-primary">Overview</span>
           </div>
