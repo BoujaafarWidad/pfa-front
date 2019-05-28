@@ -8,35 +8,39 @@ class ProfileForm extends Component {
     return (
       <div className="col-10 p-3 main-panel" id="main">
         <div className="pt-5 pr-3 pl-3">
-          <div class="content-wrapper">
-            <div class="content">
-              <div class="shadow bg-white border rounded">
-                <div class="row no-gutters">
-                  <div class="shadow col-lg-12 col-xl-12">
-                    <div class="profile-content-left mx-auto text-center">
-                      <div class="shadow-sm card text-center widget-profile px-0 border-0">
-                        <div class="card-img mx-auto">
-                          <img className="img" src={user} alt="user image" />
+          <div className="content-wrapper">
+            <div className="content">
+              <div className="shadow bg-white border rounded">
+                <div className="row no-gutters">
+                  <div className="shadow col-lg-12 col-xl-12">
+                    <div className="profile-content-left mx-auto text-center">
+                      <div className="shadow-sm card text-center widget-profile px-0 border-0">
+                        <div className="card-img mx-auto">
+                          <img className="img" src={user} alt="user" />
                         </div>
-                        <div class="card-body">
-                          <h4 class="py-2 text-dark">{this.props.user.nom}</h4>
+                        <div className="card-body">
+                          <h4 className="py-2 text-dark">
+                            {this.props.user.nom}
+                          </h4>
                           <p>{this.props.user.email}</p>
                         </div>
                       </div>
 
-                      <div class="contact-info pt-4">
-                        <h5 class="info-color  mb-1">Your Informations</h5>
-                        <p class="text-color-primary pt-4 mb-2 text-secondary">
+                      <div className="contact-info pt-4">
+                        <h5 className="info-color  mb-1">Your Informations</h5>
+                        <p className="text-color-primary pt-4 mb-2">
                           Email address
                         </p>
                         <p className="text-color-secondary">
                           {this.props.user.email}
                         </p>
-                        <p class="text-color-primary pt-4 mb-2">Phone Number</p>
+                        <p className="text-color-primary pt-4 mb-2">
+                          Phone Number
+                        </p>
                         <p className="text-color-secondary">
                           {this.props.user.tel}
                         </p>
-                        <p class="text-color-primary pt-4 mb-2">Birthday</p>
+                        <p className="text-color-primary pt-4 mb-2">Birthday</p>
                         <p className="text-color-secondary">
                           {this.props.user.birthday}
                         </p>

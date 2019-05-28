@@ -5,33 +5,46 @@ import "./assets/css/index.css";
 import Spinner from "../../../Spinner/index";
 import axios from "axios";
 
-class ProcessList extends Component {
+class ProgramsList extends Component {
   constructor(props) {
     super(props);
     this.state = {
       filterInput: "",
-      process: null
+      programs: null
     };
   }
 
   componentWillMount() {
     axios
-      .get(`http://localhost:8080/process/strategy/${this.props.selected.id}`)
-      .then(res => this.setState({ process: res.data }))
+      .get(
+        `http://localhost:8080/programs/strategies/${this.props.selected.id}`
+      )
+      .then(res => this.setState({ programs: res.data }))
       .catch(e => console.log(e));
   }
 
-  _renderProcess = ({ id, nom, desc }) => (
-    <div className="card strategy" key={shortId.generate()}>
+  _renderProgram = ({ id, nom, desc, indicateur, processus, objectif }) => (
+    <div className="card program" key={shortId.generate()}>
       <div className="card-body">
-        <div className="card-title text-color-primary text-lg">{nom}</div>
+        <div className="card-title text-color-primary text-lg">
+          {nom}
+          <span className="text-color-secondary indicateur-program text-sm">
+            {indicateur}%
+          </span>
+        </div>
+        <div className="card-title text-color-secondary">
+          Process: {processus.nom}
+        </div>
+        <div className="card-title text-color-secondary">
+          Goal: {objectif.nom}
+        </div>
         <hr />
         <p className="card-text text-color-secondary">{desc}</p>
         <Link
           className="btn primary-btn"
           to={`/app/organizations/${
             this.props.idSelectedOrganization
-          }/strategies/${this.props.selected.id}/process/${id}`}
+          }/strategies/${this.props.selected.id}/programs/${id}`}
         >
           <i className="fas fa-sign-in-alt mr-2" />
           Enter
@@ -42,40 +55,40 @@ class ProcessList extends Component {
 
   render() {
     return (
-      (this.state.process && (
+      (this.state.programs && (
         <div className="col-10 pt-3 main-panel" id="main">
           <div className="pr-3 row" id="main-bar">
             <div className="col-6">
               <span className="text-color-secondary">
                 Workspace / {this.props.selected.nom} /{" "}
               </span>
-              <span className="text-color-primary">Process</span>
+              <span className="text-color-primary">Programs</span>
             </div>
             <div className="col-6 text-right">
               <Link
                 className="btn primary-btn"
                 to={`/app/organizations/${
                   this.props.idSelectedOrganization
-                }/strategies/${this.props.selected.id}/process/new`}
+                }/strategies/${this.props.selected.id}/programs/new`}
               >
                 <i className="fas fa-plus mr-3" />
-                Add process
+                Add program
               </Link>
             </div>
           </div>
-          <div id="filter-process-panel" className="row pr-3 mt-4 mb-5">
+          <div id="filter-program-panel" className="row pr-3 mt-4 mb-5">
             <div className="col">
               <div className="input-group">
                 <div className="input-group-prepend">
-                  <span className="input-group-text" id="filter-process-icon">
+                  <span className="input-group-text" id="filter-program-icon">
                     <i className="fas fa-filter" />
                   </span>
                 </div>
                 <input
                   type="text"
                   className="form-control"
-                  placeholder="Filter process"
-                  aria-describedby="filter-process-icon"
+                  placeholder="Filter program"
+                  aria-describedby="filter-program-icon"
                   value={this.state.filterInput}
                   onChange={event =>
                     this.setState({ filterInput: event.target.value })
@@ -86,9 +99,9 @@ class ProcessList extends Component {
           </div>
           <div className="pt-5 pr-3">
             <div className="card-columns">
-              {this.state.process
+              {this.state.programs
                 .filter(({ nom }) => nom.includes(this.state.filterInput))
-                .map(this._renderProcess)}
+                .map(this._renderProgram)}
             </div>
           </div>
         </div>
@@ -97,4 +110,4 @@ class ProcessList extends Component {
   }
 }
 
-export default ProcessList;
+export default ProgramsList;

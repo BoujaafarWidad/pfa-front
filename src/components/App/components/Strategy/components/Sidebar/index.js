@@ -65,6 +65,21 @@ class Sidebar extends Component {
                   Goals
                 </Link>
               </li>
+              <li
+                className={`list-group-item mt-2 ${
+                  this.props.active === "programs" ? "active-organization" : ""
+                }`}
+              >
+                <Link
+                  className="text-lg"
+                  to={`/app/organizations/${
+                    this.props.idSelectedOrganization
+                  }/strategies/${this.props.selected.id}/programs`}
+                >
+                  <i className="fas fa-project-diagram mr-3" />
+                  Programs
+                </Link>
+              </li>
             </ul>
           </div>
           <div id="sidebar-bottom">

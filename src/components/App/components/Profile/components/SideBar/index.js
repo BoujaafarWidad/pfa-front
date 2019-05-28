@@ -7,7 +7,7 @@ class Sidebar extends Component {
   render() {
     return (
       <Fragment>
-        <div className="col-2 pt-4 pr-0" id="sidebar">
+        <div className="col-2 pt-4" id="sidebar">
           <div id="sidebar-top">
             <div className="ml-3 mb-3">
               <i className="fas fa-fingerprint mr-3" />
@@ -16,7 +16,10 @@ class Sidebar extends Component {
             <hr />
             <ul className="list-group list-group-flush mt-4">
               <li className="list-group-item active-organization">
-                <Link className="text-lg" to="./">
+                <Link
+                  className="text-lg"
+                  to={`/app/profile/${this.props.user.id}`}
+                >
                   <i className="far fa-user mr-3" />
                   Profile
                 </Link>
