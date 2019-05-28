@@ -7,7 +7,7 @@ class Sidebar extends Component {
   render() {
     return (
       <Fragment>
-        <div className="col-2 pt-4 pr-0" id="sidebar">
+        <div className="col-2 pt-4" id="sidebar">
           <div id="sidebar-top">
             <div className="ml-3 mb-3">
               <i className="fas fa-fingerprint mr-3" />
