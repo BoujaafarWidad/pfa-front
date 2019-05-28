@@ -1,21 +1,17 @@
 import React, { Component, Fragment } from "react";
 import Header from "../Header";
-import ProfileForm from "./components/ProfileForm";
 import SideBar from "./components/SideBar";
+import UpdateProfileForm from "./UpdateProfileForm";
 
-class Profile extends Component {
-  componentWillMount() {
-    document.title = "Profile";
-  }
+class UpdateProfile extends Component {
   render() {
     return (
       <Fragment>
         <Header />
         <SideBar />
-        <ProfileForm />
+        <UpdateProfileForm />
       </Fragment>
     );
   }
 }
-
-export default Profile;
+export default UpdateProfile;
