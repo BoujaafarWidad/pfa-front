@@ -1,97 +1,50 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
 import { connect } from "react-redux";
-import shortId from "shortid";
+import user from "./assets/img/user.png";
 import "./assets/css/index.css";
 
 class ProfileForm extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      index: 0,
-      profileState: "active",
-      organizationsState: ""
-    };
-  }
-
-  _handleOrganizationsClick = e => {
-    e.preventDefault();
-    this.setState({ index: 1, organizationsState: "active", profileState: "" });
-  };
-
-  _handleProfileClick = e => {
-    e.preventDefault();
-    this.setState({ index: 0, organizationsState: "", profileState: "active" });
-  };
-
-  _renderOrganization = ({ nom, desc }) => (
-    <li className="list-group-item" key={shortId.generate()}>
-      <div className="float-left">
-        <div>
-          <div className="float-right ml-2">
-            <h5 className="mb-0">{nom}</h5>
-            <div className="text-muted text-xs mt-2 ml-0">{desc}</div>
-          </div>
-          <div className="clearfix" />
-        </div>
-      </div>
-      <div className="clearfix" />
-    </li>
-  );
-
   render() {
-    const profile = (
-      <div className="card-body">
-        <h5 className="card-title col-3">{this.props.user.nom}</h5>
-        <div className="col-3 text-color-primary">
-          Mail: {this.props.user.email}
-        </div>
-        <div className="col-3 text-color-primary">
-          Tel: {this.props.user.tel}
-        </div>
-        <button type="submit" className="edit_profile btn primary-btn">
-          Edit profile
-        </button>
-      </div>
-    );
-    const organizations = (
-      <ul className="list-group-flush max-width p-3">
-        {this.props.organizations.map(this._renderOrganization)}
-      </ul>
-    );
-
     return (
-      <div className="container">
-        <div className="card mb-6">
-          <img
-            className="card-img-top "
-            src="https://www.htmlcsscolor.com/preview/gallery/6A6C6E.png"
-            alt="Card cap"
-          />
-          <div className="card-header">
-            <ul className="nav nav-tabs card-header-tabs">
-              <li className="nav-item">
-                <Link
-                  className={`nav-link ${this.state.profileState}`}
-                  to="./"
-                  onClick={this._handleProfileClick}
-                >
-                  Profile
-                </Link>
-              </li>
-              <li className="nav-item">
-                <Link
-                  className={`nav-link ${this.state.organizationsState}`}
-                  to="#"
-                  onClick={this._handleOrganizationsClick}
-                >
-                  Organizations
-                </Link>
-              </li>
-            </ul>
+      <div className="col-10 p-3 main-panel" id="main">
+        <div className="pt-5 pr-3 pl-3">
+          <div class="content-wrapper">
+            <div class="content">
+              <div class="shadow bg-white border rounded">
+                <div class="row no-gutters">
+                  <div class="shadow col-lg-12 col-xl-12">
+                    <div class="profile-content-left mx-auto text-center">
+                      <div class="shadow-sm card text-center widget-profile px-0 border-0">
+                        <div class="card-img mx-auto">
+                          <img className="img" src={user} alt="user image" />
+                        </div>
+                        <div class="card-body">
+                          <h4 class="py-2 text-dark">{this.props.user.nom}</h4>
+                          <p>{this.props.user.email}</p>
+                        </div>
+                      </div>
+
+                      <div class="contact-info pt-4">
+                        <h5 class="info-color  mb-1">Your Informations</h5>
+                        <p class="text-dark font-weight-medium pt-4 mb-2">
+                          Email address
+                        </p>
+                        <p>{this.props.user.email}</p>
+                        <p class="text-dark font-weight-medium pt-4 mb-2">
+                          Phone Number
+                        </p>
+                        <p>{this.props.user.tel}</p>
+                        <p class="text-dark font-weight-medium pt-4 mb-2">
+                          Birthday
+                        </p>
+                        <p>{this.props.user.birthday}</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
-          {this.state.index === 0 && profile}
-          {this.state.index === 1 && organizations}
         </div>
       </div>
     );
